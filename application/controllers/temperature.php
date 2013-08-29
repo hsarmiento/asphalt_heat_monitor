@@ -22,6 +22,7 @@ class Temperature extends CI_Controller {
 	{
 		parent::__construct();
         $this->layout->setLayout('layout');
+        $this->load->model('temperature_model');
 	}
 	
 	public function index()
@@ -32,11 +33,10 @@ class Temperature extends CI_Controller {
 	public function get_temperature_value()
 	{
 		/* site.com/temperature/sensor_id/value */
-		$sensor_id = $this->uri->segment(3,0);
-		$value = $this->uri->segment(4,0);
-		$data = array('sensor_id' => $sensor_id ,'value'=>$value);
-		$this->db->insert('temperature', $data);
-		// $this->layout->view('get_temperature_value',compact('sensor_id','value'));
+		$iSensorId = $this->uri->segment(3,0);
+		$iValue = $this->uri->segment(4,0);
+		$this->temperature_model->initialise($iSensorId,$iValue);
+		$this->temperature_model->save_temperature_value();
 	}
 }
 

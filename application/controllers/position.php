@@ -6,16 +6,22 @@ class Position extends CI_Controller
 	{
 		parent::__construct();
         $this->layout->setLayout('layout');
+        $this->load->model('Position_model');
 	}
 
-	public function view()
+	public function view($iPcbId)
 	{
 		if (!file_exists('application/views/position/view.php'))
 		{
 			// Whoops, we don't have a page for that!
 			show_404();
 		}
-		$this->layout->view('view');
+		if ($this->Position_model->exist_pcbid($iPcbId) === false)
+		{
+			show_error('No se registran posiciones para este pcb');
+		}
+        $aData['query'] = $this->Position_model->get_last_position($iPcbId);
+		$this->layout->view('view', $aData);
 	}
 
 }

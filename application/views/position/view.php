@@ -28,4 +28,12 @@
 	window.onload = loadScript;
 </script>
 
+<?php
+
+echo '<pre>';
+print_r($query);
+echo '</pre>';
+
+?>
+
 <div id="map_canvas"></div>

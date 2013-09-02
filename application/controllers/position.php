@@ -7,6 +7,7 @@ class Position extends CI_Controller
 		parent::__construct();
         $this->layout->setLayout('layout');
         $this->load->model('Position_model');
+        $this->load->model('Temperature_model');
 	}
 
 	public function view($iPcbId)
@@ -22,7 +23,8 @@ class Position extends CI_Controller
 			show_error('No se registran posiciones para este pcb');
 		}
 
-        $aData['query'] = $this->Position_model->get_last_position($iPcbId);
+        $aData['pos'] = $this->Position_model->get_last_position($iPcbId);
+        $aData['temp'] = $this->Temperature_model->get_last_temperatures($iPcbId);
 		$this->layout->view('view', $aData);
 	}
 
@@ -35,5 +37,4 @@ class Position extends CI_Controller
 		}
 		$this->layout->view('index');
 	}
-
 }

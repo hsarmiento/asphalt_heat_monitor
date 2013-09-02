@@ -1,20 +1,18 @@
-<script>
-	// var posicion = new google.maps.LatLng(<?php echo $query['latitude']?>, <?php echo $query['longitude']?>);
+<script>	
 	function initialize() {
 		var mapOptions = {
-	    	zoom: 15,
-		    // center: new google.maps.LatLng(-33.408, -70.545),
-		    center: new google.maps.LatLng(<?php echo $query['latitude']?>, <?php echo $query['longitude']?>),
-		    // center: position,
+	    	zoom: 15,		    
+		    center: new google.maps.LatLng(<?php echo $pos['latitude']?>, <?php echo $pos['longitude']?>),		    
 		    mapTypeId: google.maps.MapTypeId.ROADMAP
 	  	};
 
 		var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+
 		var marker = new google.maps.Marker({
 			map:map,
 			draggable:true,
 			animation: google.maps.Animation.DROP,
-			position: new google.maps.LatLng(<?php echo $query['latitude']?>, <?php echo $query['longitude']?>)
+			position: new google.maps.LatLng(<?php echo $pos['latitude']?>, <?php echo $pos['longitude']?>)
   		});
 	}
 
@@ -31,7 +29,10 @@
 <?php
 
 echo '<pre>';
-print_r($query);
+print_r($pos);
+echo '</pre>';
+echo '<pre>';
+print_r($temp);
 echo '</pre>';
 
 ?>

@@ -14,6 +14,27 @@
 			animation: google.maps.Animation.DROP,
 			position: new google.maps.LatLng(<?php echo $pos['latitude']?>, <?php echo $pos['longitude']?>)
   		});
+
+  		var contentString = '<div>' +
+  			"<b><?php echo $temp[0]['pcb_name']; ?></b>" + 
+  			'<br>' +
+  			'<b>Latitude: </b>' +
+  			'<br>' +
+  			'<b>Longitude: </b>' +
+  			'<br>' +
+  			'<b>Temperature sensor1</b>' + 
+  			'<br>' +
+  			'<b>Temperature sensor2</b>' + 
+  			'<br>' +
+  			'<b>Created at:</b>' +
+  			'</div>'
+
+		var infowindow = new google.maps.InfoWindow({
+			content: contentString,
+			maxWidth: 250			
+		});
+
+		infowindow.open(map,marker);
 	}
 
 	function loadScript() {
@@ -28,9 +49,9 @@
 
 <?php
 
-echo '<pre>';
-print_r($pos);
-echo '</pre>';
+// echo '<pre>';
+// print_r($pos);
+// echo '</pre>';
 echo '<pre>';
 print_r($temp);
 echo '</pre>';

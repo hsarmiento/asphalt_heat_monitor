@@ -10,16 +10,21 @@ class Temperature_model extends CI_Model {
         parent::__construct();
     }
 
-    public function initialise($sensor_id, $value)
+    public function initialize($sensor_id, $value)
     {
-    	$this->iSensorId = $sensor_id;
-    	$this->iValue = $value;
+        $this->iSensorId = $sensor_id;
+        $this->iValue = $value;
 
     }
 
     public function save_temperature_value()
     {
-    	$data = array('sensor_id' => $this->iSensorId ,'value'=>$this->iValue);
-		$this->db->insert('temperature', $data);
+        $data = array('sensor_id' => $this->iSensorId ,'value'=>$this->iValue);
+        $this->db->insert('temperature', $data);
+        if($this->db->affected_rows() == '1')
+        {
+            return TRUE;
+        }
+        return FALSE;       
     }
 }

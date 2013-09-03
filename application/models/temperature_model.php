@@ -36,7 +36,7 @@ class Temperature_model extends CI_Model {
         $this->db->join('pcb', 'pcb.id = sensors.pcb_id and pcb.id ='.$iPcbId);
         $query = $this->db->get();
         // esta linea muestra la ultima consulta ejecutada en la db
-        echo $this->db->last_query();
+        // echo $this->db->last_query();
         return $query->result_array();
     }
 

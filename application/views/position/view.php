@@ -17,21 +17,20 @@
 
   		var contentString = '<div>' +
   			"<b><?php echo $temp[0]['pcb_name']; ?></b>" + 
+  			"<br>" +
+  			"<b>Latitude:</b> <?php echo $pos['latitude']; ?>" +
   			'<br>' +
-  			'<b>Latitude: </b>' +
-  			'<br>' +
-  			'<b>Longitude: </b>' +
-  			'<br>' +
-  			'<b>Temperature sensor1</b>' + 
-  			'<br>' +
-  			'<b>Temperature sensor2</b>' + 
-  			'<br>' +
-  			'<b>Created at:</b>' +
-  			'</div>'
+  			"<b>Longitude:</b> <?php echo $pos['longitude']; ?>" +
+  			"<br>" +
+  			"<b>Temperature sensor1:</b> <?php echo $temp[0]['heat'].'º'; ?>" + 
+  			"<br>" +
+  			"<b>Temperature sensor2:</b> <?php echo $temp[1]['heat'].'º'; ?>" + 
+  			"<br>" +
+  			"<b>Created at:</b> " +
+  			"</div>"
 
 		var infowindow = new google.maps.InfoWindow({
-			content: contentString,
-			maxWidth: 250			
+			content: contentString,							
 		});
 
 		infowindow.open(map,marker);
@@ -52,9 +51,9 @@
 // echo '<pre>';
 // print_r($pos);
 // echo '</pre>';
-echo '<pre>';
-print_r($temp);
-echo '</pre>';
+// echo '<pre>';
+// print_r($temp);
+// echo '</pre>';
 
 ?>
 

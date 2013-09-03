@@ -39,4 +39,26 @@ class Temperature_model extends CI_Model {
         echo $this->db->last_query();
         return $query->result_array();
     }
+
+    public function max_temperature_compare($sensor_id, $current_temp = 0)
+    {
+        $this->db->select('max_temperature');
+        $this->db->from('sensors_settings');
+        $this->db->where('sensor_id',$sensor_id);
+        $this->db->order_by('created_at','desc');
+        $this->db->limit(1);
+        $query = $this->db->get();
+        if ($query->num_rows() > 0){
+            $aMaxTemperature = $query->row_array();
+            if($aMaxTemperature['max_temperature'] < $current_temp){
+                return TRUE;
+            }else{
+                return FALSE;
+            }
+        }else{
+            return FALSE;
+        }  
+        //echo $this->db->last_query();
+        
+    }
 }

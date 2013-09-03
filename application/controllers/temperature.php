@@ -34,6 +34,7 @@ class Temperature extends CI_Controller {
 	{
 		/* site.com/temperature/sensor_id1/value1/sensor_id2/value2/pcb_id/latitude/longitude */
 		$this->load->model('position_model');
+		$this->load->model('alarm_event_model');
 		$iSensorId1 = $this->uri->segment(3,0);
 		$iValue1 = $this->uri->segment(4,0);
 		$iSensorId2 = $this->uri->segment(5,0);
@@ -48,6 +49,24 @@ class Temperature extends CI_Controller {
 		$this->temperature_model->save_temperature_value();
 		$this->position_model->initialize($iPcbId,$fLatitude, $fLongitude);
 		$this->position_model->save_position();
+		if($this->temperature_model->max_temperature_compare($iSensorId1,$iValue1))
+		{
+			$this->alarm_event_model->initialize(1,null,$iSensorId1);
+			$this->alarm_event_model->save_alert();
+		}
+		
+		if($this->temperature_model->max_temperature_compare($iSensorId2,$iValue2))
+		{
+			$this->alarm_event_model->initialize(1,null,$iSensorId2);
+			$this->alarm_event_model->save_alert();
+		}
+	}
+
+
+	public function prueba()
+	{
+		$this->load->model('alarm_event_model');
+		var_dump($this->alarm_event_model->get_all_alert());
 	}
 }
 

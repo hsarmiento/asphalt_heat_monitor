@@ -2,6 +2,7 @@
 
 <?php
 $aAttributes = array('class' => '', 'id' =>'save-setting-pcb');
+echo $msg;
 echo form_open('pcb_setting/index', $aAttributes);?>
 	<p> <?php 
 		echo form_error('max_loss_time'); 

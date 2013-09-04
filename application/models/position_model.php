@@ -51,4 +51,20 @@ class Position_model extends CI_Model
         return FALSE;
     }
 
+    public function max_com_loss_time_compare($pcb_id)
+    {
+        $this->load->model('pcb_setting_model');
+        $iLastLossValue = $this->pcb_setting_model->get_last_value($pcb_id);
+        $this->db->select('TIMESTAMPDIFF(SECOND, created_at, NOW()) as diff');
+        $this->db->from('position');
+        $this->db->where('pcb_id', $pcb_id);
+        $this->db->order_by('created_at', 'desc');
+        $this->db->limit(1);
+        $aDiff = $this->db->get()->row_array();
+        if($aDiff['diff'] > $iLastLossValue['max_com_loss_time']){
+            return TRUE;
+        }
+        return FALSE;
+    }
+
 }

@@ -29,4 +29,15 @@ class Pcb_setting_model extends CI_Model {
         return FALSE;
     }
 
+    public function get_last_value($pcb_id)
+    {
+        $this->db->select('max_com_loss_time');
+        $this->db->from('pcb_settings');
+        $this->db->where('pcb_id', $pcb_id);
+        $this->db->order_by('created_at', 'desc');
+        $this->db->limit(1);
+        $query = $this->db->get();
+        return $query->row_array();
+    }
+
 }

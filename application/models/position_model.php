@@ -31,12 +31,13 @@ class Position_model extends CI_Model
     	}
     }
 
-    public function get_last_position($iPcbId)
+    public function get_last_positions($iPcbId,$iLimit)
     {
     	$this->db->order_by('id','desc');
-    	$this->db->limit(1);
-    	$query = $this->db->get_where('position',array('pcb_id' => $iPcbId));    	
-    	return $query->row_array();
+    	$this->db->limit($iLimit);
+    	$query = $this->db->get_where('position',array('pcb_id' => $iPcbId));
+        // echo $this->db->last_query();
+    	return $query->result_array();
     }
 
     public function save_position(){

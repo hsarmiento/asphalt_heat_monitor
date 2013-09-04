@@ -2,6 +2,7 @@
 
 <?php
 $aAttributes = array('class' => '', 'id' =>'save-setting-sensor');
+echo $msg;
 echo form_open('sensor_setting/index', $aAttributes);?>
 	<p> <?php 
 		echo form_error('max_temperature'); 

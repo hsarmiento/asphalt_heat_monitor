@@ -32,19 +32,20 @@ class Pcb_setting extends CI_Controller {
 		$this->load->helper('form');
 		$this->form_validation->set_rules('max_loss_time', 'Valor maximo de pérdida de comunicación', 'required');
 		$this->form_validation->set_message('required', 'Favor ingrese valor');
+		$msg = '';
 		if($this->form_validation->run() == TRUE)
 		{
 			//$aFormData = array('max_temperature' => set_value('max_temperature'));
 			$this->pcb_setting_model->initialize(set_value('max_loss_time'));
 			if($this->pcb_setting_model->save_max_value() == TRUE){
-				// redirect('sensor_setting/index');
+				$msg = 'Se ha guardado la configuración';
 			}else{
-				echo 'ha ocurrido un error';
+				$msg = 'Ha ocurrido un error';
 			}
 		}else{
 			// $this->layout->view('index');
 		}
-		$this->layout->view('index');
+		$this->layout->view('index', compact('msg'));
 	}
 }
 

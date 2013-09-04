@@ -34,7 +34,7 @@ class Temperature_model extends CI_Model {
         $this->db->from('temperature');
         $this->db->join('sensors', 'sensors.id = temperature.sensor_id');
         $this->db->join('pcb', 'pcb.id = sensors.pcb_id and pcb.id ='.$iPcbId);
-        $this->db->order_by('temperature.created_at','desc');
+        $this->db->order_by('temperature.id','desc');
         $this->db->limit($iLimit);
         $query = $this->db->get();
         // esta linea muestra la ultima consulta ejecutada en la db

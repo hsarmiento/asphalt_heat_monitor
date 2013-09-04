@@ -21,4 +21,14 @@ class Sensor_model extends CI_Model {
         return $query->result_array();
     }
 
+    public function get_sensors_with_pcb($pcb_id)
+    {
+        $this->db->select('id');
+        $this->db->from('sensors');
+        $this->db->where('pcb_id',$pcb_id);
+        $this->db->order_by('id','asc');
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+
 }

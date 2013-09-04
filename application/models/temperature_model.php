@@ -58,7 +58,5 @@ class Temperature_model extends CI_Model {
         }else{
             return FALSE;
         }  
-        //echo $this->db->last_query();
-        
     }
 }

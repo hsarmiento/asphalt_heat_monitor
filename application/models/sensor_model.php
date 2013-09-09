@@ -31,4 +31,13 @@ class Sensor_model extends CI_Model {
         return $query->result_array();
     }
 
+    public function get_sensor_id_with_identifier($identifier)
+    {
+        $this->db->select('id');
+        $this->db->from('sensors');
+        $this->db->where('identifier', $identifier);
+        $aQuery = $this->db->get()->row_array();
+        return $aQuery['id'];
+    }
+
 }

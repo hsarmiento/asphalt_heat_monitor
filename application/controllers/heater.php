@@ -22,7 +22,7 @@ class Heater extends CI_Controller {
 	{
 		parent::__construct();
         $this->layout->setLayout('layout');
-        //$this->load->model('alarm_event_model');
+        $this->load->model('heater_model');
 	}
 	
 	public function index()
@@ -30,27 +30,22 @@ class Heater extends CI_Controller {
 
 	}
 
-	public function save_heater_temperature(){
-		/* /temperature/function/sensor_identifier/status/temp */
+	public function save_heater_status(){
+		/* /temperature/function/sensor_identifier/status/timestamp */
 		/* primer valor es function y comienza desde 1*/
 		/* status 1 es que esta prendido el calefactor */
-		// $this->load->model('sensor_model');
-		// $this->load->model('temperature_model');
-		// $iSensorId = $iStatus = $fTemp = 0;
-		// $iSensorId = $this->sensor_model->get_sensor_id_with_identifier($this->uri->segment(3,0));
-		// $iStatus = $this->uri->segment(4,0);
-		// $fTemp = $this->uri->segment(5,0);
-		// if ($iStatus == 1){
-			
-		// 	$this->temperature_model->initialize($iSensorId,$fTemp);
-		// 	$this->temperature_model->save_temperature_value();
-		// }else if($iStatus == 0){
 
-		// }
-		
-		
-		// echo $this->uri->segment(3,0);
-
+		$this->load->model('sensor_model');
+		$iSensorId = $iStatus = 0;
+		$iSensorId = $this->sensor_model->get_sensor_id_with_identifier($this->uri->segment(3,0));
+		$iStatus = $this->uri->segment(4,0);
+		$dTimestamp = urldecode($this->uri->segment(5,0));
+		if ($iStatus == 1){
+			$this->heater_model->initialize($iSensorId,$iStatus,$dTimestamp,null);
+			$this->heater_model->save_heater_status();
+		}else if($iStatus == 0){
+			$this->heater_model->update_heater_status($iSensorId,$dTimestamp);
+		}
 
 	}
 }

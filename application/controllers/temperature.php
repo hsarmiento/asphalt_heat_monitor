@@ -73,6 +73,19 @@ class Temperature extends CI_Controller {
 		$this->load->model('alarm_event_model');
 		var_dump($this->alarm_event_model->get_all_alert());
 	}
+
+	public function view_all()
+	{
+		$this->db->select('*')
+		->from('temperature')
+		->order_by('id','desc');
+		$aResultTemp = $this->db->get()->result_array();
+		$this->db->select('*')
+		->from('position')
+		->order_by('id','desc');
+		$aResultPos = $this->db->get()->result_array();
+		$this->layout->view('view_all',compact('aResultTemp', 'aResultPos'));
+	}
 }
 
 /* End of file welcome.php */

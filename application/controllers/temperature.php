@@ -30,22 +30,23 @@ class Temperature extends CI_Controller {
 		$this->layout->view('index');
 	}
 
-	public function get_temperature_value()
+	public function save_temperature_value()
 	{
-		/* site.com/temperature/sensor_identifier1/value1/sensor_identifier2/value2/pcb_id/latitude/longitude/battery */
+		/* /temperature/function/sensor_identifier1/value1/sensor_identifier2/value2/pcb_id/latitude/longitude/battery */
 		$this->load->model('position_model');
 		$this->load->model('alarm_event_model');
 		$this->load->model('sensor_model');
+		$this->load->model('pcb_model');
 		$iSensorIdentifier1 = $this->uri->segment(3,0);
 		$iValue1 = $this->uri->segment(4,0);
 		$iSensorIdentifier2 = $this->uri->segment(5,0);
 		$iValue2 = $this->uri->segment(6,0);
-		$iPcbId = $this->uri->segment(7,0);
+		$iPcbIdentifier = $this->uri->segment(7,0);
 		$fLatitude = $this->uri->segment(8,0);
 		$fLongitude = $this->uri->segment(9,0);
 		$iSensorId1 = $this->sensor_model->get_sensor_id_with_identifier($iSensorIdentifier1);
 		$iSensorId2 = $this->sensor_model->get_sensor_id_with_identifier($iSensorIdentifier2);
-
+		$iPcbId = $this->pcb_model->get_pcb_id_with_identifier($iPcbIdentifier);
 
 		$this->temperature_model->initialize($iSensorId1,$iValue1);
 		$this->temperature_model->save_temperature_value();

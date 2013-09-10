@@ -35,4 +35,13 @@ class Pcb_model extends CI_Model {
         // echo $this->db->last_query();
     }
 
+    public function get_pcb_id_with_identifier($identifier)
+    {
+        $this->db->select('id')
+        ->from('pcb')
+        ->where('identifier', $identifier);
+        $aQuery = $this->db->get()->row_array();
+        return $aQuery['id'];
+    }
+
 }

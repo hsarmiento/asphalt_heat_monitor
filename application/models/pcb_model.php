@@ -42,4 +42,20 @@ class Pcb_model extends CI_Model {
         return $aQuery['id'];
     }
 
+    public function get_sensor_heater_with_pcb($pcb_id)
+    {
+        $this->db->select('t1.id as pcb_id, t1.identifier as pcb_identifer, 
+                            t2.id as sensor_id, t2.identifier as sensor_identifier,
+                            t3.status as status, t3.created_at as created_at,
+                            t3.stopped_at as stopped_at, t4.value as temperature')
+        ->from('pcb as t1')
+        ->join('sensors as t2', 't1.id = t2.pcb_id')
+        ->join('heaters as t3', 't2.id = t3.sensor_id')
+        ->join('temperature as t4', 't2.id = t4.sensor_id','left')
+        ->where('t1.id',$pcb_id)
+        ->order_by('t3.id','desc')
+        ->limit(1);
+        return $this->db->get()->row_array();
+    }
+
 }

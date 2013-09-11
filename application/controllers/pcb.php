@@ -68,7 +68,15 @@ class Pcb extends CI_Controller {
 
         $aData['pos'] = $this->position_model->get_last_positions($iPcbId,1);
         $aData['temp'] = $this->temperature_model->get_last_temperatures($iPcbId);
+        $aData['heater'] = $this->pcb_model->get_sensor_heater_with_pcb($iPcbId);
 		$this->layout->view('view', $aData);
+	}
+
+	public function ajax_refresh_heater_status($pcb_id)
+	{
+		$this->layout->setLayout('ajax_layout');
+		$aData = $this->pcb_model->get_sensor_heater_with_pcb($pcb_id);
+		$this->layout->view('ajax_refresh_heater_status', compact('aData'));
 	}
 }
 

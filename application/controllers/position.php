@@ -34,7 +34,7 @@ class Position extends CI_Controller
 	public function ajax_view($iPcbId)
 	{
 		$this->layout->setLayout('ajax_layout');
-		if (!file_exists('application/views/position/view.php'))
+		if (!file_exists('application/views/position/ajax_view.php'))
 		{
 			// Whoops, we don't have a page for that!
 			show_404();

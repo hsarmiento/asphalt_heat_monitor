@@ -12,40 +12,35 @@
 		<div id="mapa"></div>
 		<div id="grafico"></div>
 	</div></div>
-  	
-    
-    
-    
+  	  
     <div id="columnaselectora">
      <div id="tituloproyecto"class="titulos">Acoplado</div>
      
      <div id="selectores">
      
      <div id="patentes1">
-     
-     <div class="patentes"><a href="<?php echo base_url();?>pcb/view/1"><?php echo $temp[0]['pcb_name']; ?></a></div>
-     <div class="patentes"><a href="#">BB AF 12</a></div>
-     <div class="patentes"><a href="#">RT JE 07</a></div>
-     <div class="patentes"><a href="#">RK TF 65</a></div>
-     <div class="patentes"><a href="#">UK DA 48</a></div>
-      <div class="patentes"><a href="#">ZP DO 30</a></div>
-     <div class="patentes"><a href="#">WO DR 18</a></div>
-     <div class="patentes"><a href="#">GH DA 19</a></div>
-     <div class="patentes"><a href="#">XX TA 27</a></div>
+       <div class="patentes"><a href="<?php echo base_url();?>pcb/view/1"><?php echo $temp[0]['pcb_name']; ?></a></div>
+       <div class="patentes"><a href="#">BB AF 12</a></div>
+       <div class="patentes"><a href="#">RT JE 07</a></div>
+       <div class="patentes"><a href="#">RK TF 65</a></div>
+       <div class="patentes"><a href="#">UK DA 48</a></div>
+        <div class="patentes"><a href="#">ZP DO 30</a></div>
+       <div class="patentes"><a href="#">WO DR 18</a></div>
+       <div class="patentes"><a href="#">GH DA 19</a></div>
+       <div class="patentes"><a href="#">XX TA 27</a></div>
      </div>
      
-          <div id="patentes2">
-     
-     <div class="patentes"><a href="#">Ingresar</a></div>
-     <div class="patentes"><a href="#">Ingresar</a></div>
-     <div class="patentes"><a href="#">Ingresar</a></div>
-     <div class="patentes"><a href="#">Ingresar</a></div>
-     <div class="patentes"><a href="#">Ingresar</a></div>
-      <div class="patentes"><a href="#">Ingresar</a></div>
-     <div class="patentes"><a href="#">Ingresar</a></div>
-     <div class="patentes"><a href="#">Ingresar</a></div>
-     <div class="patentes"><a href="#">Ingresar</a></div>
-     </div>
+      <div id="patentes2">    
+         <div class="patentes"><a href="#">Ingresar</a></div>
+         <div class="patentes"><a href="#">Ingresar</a></div>
+         <div class="patentes"><a href="#">Ingresar</a></div>
+         <div class="patentes"><a href="#">Ingresar</a></div>
+         <div class="patentes"><a href="#">Ingresar</a></div>
+          <div class="patentes"><a href="#">Ingresar</a></div>
+         <div class="patentes"><a href="#">Ingresar</a></div>
+         <div class="patentes"><a href="#">Ingresar</a></div>
+         <div class="patentes"><a href="#">Ingresar</a></div>
+      </div>
      
      
 
@@ -61,23 +56,32 @@
      <div class="patentes"><a href="home_general.html">Eventos</a></div>
      
      </div></div>
-    
-    
-    
-    
+   
     <div id="columnab">
      <div id="tituloproyecto"class="titulos">Centro Control</div>
      <div id="datoscolumnab">
      
        <div id="camion"></div>
        <div id="camion_temp"></div>
-       <div class="titulos" id="calefacto_area">Calefactor Diesel</div>
+       <div class="titulos" id="calefacto_area">
+          Calefactor Diesel 
+          <span id="status_heater">
+            <?php 
+              if($heater['status'] == 1){
+                  echo 'Estado: Prendido';
+              }else if($heater['status'] == 0){
+                  echo 'Estado: Apagado';
+              }
+            ?>
+
+          </span>
+      </div>
        
        <div class="titulos" id="hrsdi">Hora de Inicio</div>
        <div class="titulos" id="tf">Tiempo de Funcionamiento</div>
        
        <div id="hrdi_valor">
-         <div class="horadeinicio" id="hrdi_input">00:00:00 AM</div>
+         <div class="horadeinicio" id="hrdi_input"><?=$heater['created_at']?></div>
        </div>
        
        
@@ -93,32 +97,21 @@
 			Ubicación       : Lat. <span id="latitud"><?php echo $pos[0]['latitude'];?></span> / Log. <span id="longitud"><?php echo $pos[0]['longitude'];?></span> <br>
 			Temperatura estanque: <span id="temp1"><?php echo $temp[0]['heat']?></span> <br>
 			Temperatura calefactor: <span id="temp2"><?php echo $temp[1]['heat']?></span> <br>
-			Hora de Inicio  : 08:30:00-AM<br>
+			Hora de Inicio  : <?=$heater['created_at']?><br>
        		Tiempo de Func. : <span id="timer">04:34:19 Hrs.</span>
        	</div>
-       <div id="box_bts">
-       
-       
-       
-         <div id="bts_grafico">
-         
-         
-        <div class="botongrafico" id="botongrafico"><a href="#">Grafico</a></div>
-       <div class="botonmapa" id="botonmapa"><a href="#">Ubicación</a></div>
-         
-         
+       <div id="box_bts"> 
+         <div id="bts_grafico"> 
+            <div class="botongrafico" id="botongrafico"><a href="#">Grafico</a></div>
+            <div class="botonmapa" id="botonmapa"><a href="#">Ubicación</a></div> 
          </div>
-         
-         
-         
          <div id="bts_alerta"><a href="#"><img src="<?php echo base_url();?>public/img/alerta.png" width="60" height="40" border="0" ></a></div>
        </div>
-     </div>
-     
+     </div> 
   </div>
 </div>
 
-<script>
+<script type="text/javascript">
 	var map;
 	var bounds;
 	var last_position;
@@ -175,4 +168,61 @@
 			}			
 		});
 	},1000);
+
+
+  $(function(){
+    if(<?=$heater['status']?> == '1'){
+      chrono();
+    }
+    setInterval(function(){
+      $.ajax({
+        url: '<?=base_url()?>pcb/ajax_refresh_heater_status/<?=$heater["pcb_id"]?>',
+        dataType: 'json',
+        cache:false 
+      }).done(function(data){
+        
+        if(data.status == '0'){
+          $("#status_heater").html('Estado: Apagado');
+          chronoStop();
+        }else{
+          $("#status_heater").html('Estado: Prendido');
+        }
+      });
+    },1000)
+  });
+
+  var startTime = 0;
+  var start = 0;
+  var end = 0;
+  var diff = 0;
+  var timerID = 0;
+
+  function chrono(){
+    start = <?php echo strtotime($heater['created_at'])*1000; ?>;
+    end = new Date();
+    end = end.getTime();
+    diff = end - start;
+    document.getElementById("tf_input").innerHTML = msToTime(diff);
+    document.getElementById("timer").innerHTML = msToTime(diff);
+    timerID = setTimeout("chrono()", 10);
+  }
+
+  function chronoStop(){
+    clearTimeout(timerID)
+  }
+
+  function addZ(n) {
+    return (n<10? '0':'') + n;
+  }
+
+  function msToTime(s) {
+    var ms = s % 1000;
+    s = (s - ms) / 1000;
+    var secs = s % 60;
+    s = (s - secs) / 60;
+    var mins = s % 60;
+    var hrs = (s - mins) / 60;
+    return addZ(hrs) + ':' + addZ(mins) + ':' + addZ(secs);
+  }
+
 </script>

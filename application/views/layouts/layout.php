@@ -22,17 +22,22 @@
 
 		<!--**********fin auxiliares*****************-->		
 
-    	 <style type="text/css">
-			html { height: 100% }
-			body { height: 100%; margin: 0; padding: 0 }
-			#map_canvas { height: 100% }
-		</style>
+    	 
 
 	</head>
 
 	<body>
+		<div id="head">
+			<div id="headcentral">
+		  		<div id="logoradic"></div>
+	      		<div id="nombreproyecto"></div>   
+  			</div>   
+		</div>
 
 		<?php echo $content_for_layout; ?>
-
+		
+		<div id="footer">
+			<div id="footer_central"></div>
+		</div>
 	</body>
 </html>

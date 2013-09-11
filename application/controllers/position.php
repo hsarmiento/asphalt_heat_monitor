@@ -10,24 +10,6 @@ class Position extends CI_Controller
         $this->load->model('Temperature_model');
 	}
 
-	public function view($iPcbId)
-	{
-		if (!file_exists('application/views/position/view.php'))
-		{
-			// Whoops, we don't have a page for that!
-			show_404();
-		}
-		//si trata de ver la posicion de un pcb que no registra posiciones
-		if ($this->Position_model->exist_pcbid($iPcbId) === false)
-		{
-			show_error('No se registran posiciones para este pcb');
-		}
-
-        $aData['pos'] = $this->Position_model->get_last_positions($iPcbId,1);
-        $aData['temp'] = $this->Temperature_model->get_last_temperatures($iPcbId);
-		$this->layout->view('view', $aData);
-	}
-
 	public function last_positions()
 	{
 		if (!file_exists('application/views/position/last_positions.php'))

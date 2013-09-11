@@ -22,13 +22,13 @@ class Pcb extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('pcb_model');
+		$this->load->model('position_model');
+		$this->load->model('temperature_model');
         $this->layout->setLayout('layout');
 	}
 	
 	public function index()
 	{
-		$this->layout->js(array('public/js/highcharts.js','public/js/modules/exporting.js','public/js/highcharts-more.js'));
-
 		$this->layout->view('index');
 	}
 
@@ -51,6 +51,24 @@ class Pcb extends CI_Controller {
 		}		
 
 		$this->layout->view('trending', compact('aData1','aData2','strIdentifier1', 'strIdentifier2'));
+	}
+
+	public function view($iPcbId)
+	{
+		if (!file_exists('application/views/pcb/view.php'))
+		{
+			// Whoops, we don't have a page for that!
+			show_404();
+		}
+		//si trata de ver la posicion de un pcb que no registra posiciones
+		if ($this->position_model->exist_pcbid($iPcbId) === false)
+		{
+			show_error('No se registran posiciones para este pcb');
+		}
+
+        $aData['pos'] = $this->position_model->get_last_positions($iPcbId,1);
+        $aData['temp'] = $this->temperature_model->get_last_temperatures($iPcbId);
+		$this->layout->view('view', $aData);
 	}
 }
 

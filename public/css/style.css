@@ -475,6 +475,10 @@ body {
 	padding-top: 3px;
 	padding-left: 10px;
 	}
+
+	#status_heater{
+		font-weight: bold;
+	}
 	
 	
 	#hrdi_valor {

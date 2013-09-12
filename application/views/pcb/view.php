@@ -5,8 +5,9 @@
 // echo '</pre>';
 ?>
 <div id="general">
-  <div id="columnaa">
-    <div id="tituloproyecto" class="titulos">Ubicación Acoplado / <span class="patentetitulo"><?php echo $temp[0]['pcb_name']; ?></span></div>    
+ 	<div id="columnaa">
+     <div id="tituloproyecto" class="titulos">Ubicación Acoplado / <span class="patentetitulo"><?php echo $temp[0]['pcb_name']; ?></span></div>
+     <div id="map_canvas"></div>
     <div id="embed">
       <div id="map_canvas"></div>		  
     </div>
@@ -15,7 +16,7 @@
     
     
     
-  <div id="columnaselectora">
+    <div id="columnaselectora">
      <div id="tituloproyecto"class="titulos">Acoplado</div>
      
      <div id="selectores">
@@ -95,17 +96,10 @@
 			Hora de Inicio  : 08:30:00-AM<br>
        		Tiempo de Func. : <span id="timer">04:34:19 Hrs.</span>
        	</div>
-       <div id="box_bts">
-       
-       
-       
-         <div id="bts_grafico">
-         
-         
-        <div class="botongrafico" id="botongrafico"><a href="<?php echo base_url();?>pcb/trending/<?php echo $pos[0]['pcb_id'];?>">Grafico</a></div>
-       <div class="botonmapa" id="botonmapa"><a href="#">Ubicación</a></div>
-         
-         
+       <div id="box_bts"> 
+         <div id="bts_grafico"> 
+            <div class="botongrafico" id="botongrafico"><a href="<?php echo base_url();?>pcb/trending/<?php echo $pos[0]['pcb_id'];?>">Grafico</a></div>
+            <div class="botonmapa" id="botonmapa"><a href="#">Ubicación</a></div> 
          </div>
          
          
@@ -171,7 +165,7 @@
 				last_position = posicion;
 				$("#longitud").html(data.longitude);
 				$("#latitud").html(data.latitude);
-			}      
+			}			
 		});
 	},1000);
 </script>

@@ -38,7 +38,7 @@
 |
 */
 
-$route['default_controller'] = "temperature";
+$route['default_controller'] = "pcb";
 $route['404_override'] = '';
 
 

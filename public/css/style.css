@@ -672,3 +672,29 @@ body {
 	margin-top: 50px;
 	
 	}
+
+
+	.alerta_area1 {
+	height: 24px;
+	width: 392px;
+	float: left;
+	margin-top: 13px;
+	padding-top: 5px;
+	padding-left: 9px;
+	font-family: "Courier New", Courier, monospace;
+	font-size: 12px;
+	font-weight: normal;
+	color: #FFF;
+	}
+	
+		.alerta_area {
+	height: 24px;
+	width: 392px;
+	float: left;
+	padding-top: 5px;
+	padding-left: 10px;
+	font-family: "Courier New", Courier, monospace;
+	font-size: 12px;
+	font-weight: normal;
+	color: #FFF;
+	}

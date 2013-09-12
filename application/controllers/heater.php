@@ -36,16 +36,22 @@ class Heater extends CI_Controller {
 		/* status 1 es que esta prendido el calefactor */
 
 		$this->load->model('sensor_model');
+		$this->load->model('alarm_event_model');
 		$iSensorId = $iStatus = 0;
 		$iSensorId = $this->sensor_model->get_sensor_id_with_identifier($this->uri->segment(3,0));
 		$iStatus = $this->uri->segment(4,0);
 		$dTimestamp = urldecode($this->uri->segment(5,0));
+		$aSensorData = $this->sensor_model->get_sensor_data($iSensorId);
+		
 		if ($iStatus == 1){
 			$this->heater_model->initialize($iSensorId,$iStatus,$dTimestamp,null);
 			$this->heater_model->save_heater_status();
+			$this->alarm_event_model->initialize(1,$aSensorData['pcb_id'],null);
 		}else if($iStatus == 0){
 			$this->heater_model->update_heater_status($iSensorId,$dTimestamp);
+			$this->alarm_event_model->initialize(2,$aSensorData['pcb_id'],null);
 		}
+		$this->alarm_event_model->save_alert();
 
 	}
 }

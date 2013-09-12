@@ -30,11 +30,11 @@ class Alarm_event_model extends CI_Model {
     }
     
     public function get_all_alarm(){
-        $this->db->select('alarms_events.pcb_id as pcb_id, alarms_events.sensor_id as sensor_id,alarms_events.created_at as created_at,sensors.identifier as sensor_identifier, event_type.text as text');
-        $this->db->from('sensors');
-        $this->db->join('alarms_events', 'sensors.id = alarms_events.sensor_id', 'left');
-        $this->db->join('event_type', 'alarms_events.event_type_id = event_type.id');
-        $this->db->order_by('created_at','desc');
+        $this->db->select('t2.pcb_id as pcb_id, t2.sensor_id as sensor_id,t2.created_at as created_at,t1.identifier as pcb_identifier, t3.text as text')
+        ->from('pcb as t1')
+        ->join('alarms_events as t2', 't1.id = t2.pcb_id', 'left')
+        ->join('event_type as t3', 't2.event_type_id = t3.id')
+        ->order_by('t2.created_at','desc');
         $query = $this->db->get();
         return $query->result_array();
 

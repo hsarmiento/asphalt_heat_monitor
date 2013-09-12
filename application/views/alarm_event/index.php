@@ -8,7 +8,7 @@
 		<tbody>
 			<?php foreach ($aAlarmsEvents as $alarmEvent) { ?>
 				<tr>
-					<td><?=$alarmEvent['sensor_identifier']?> <?=$alarmEvent['text']?></td>
+					<td><?=$alarmEvent['text']?></td>
 					<td><?=$alarmEvent['created_at']?></td>
 				</tr>
 			<?php } ?>

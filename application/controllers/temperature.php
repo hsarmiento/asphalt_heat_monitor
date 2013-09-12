@@ -56,14 +56,14 @@ class Temperature extends CI_Controller {
 		$this->position_model->save_position();
 		if($this->temperature_model->max_temperature_compare($iSensorId1,$iValue1))
 		{
-			$this->alarm_event_model->initialize(1,null,$iSensorId1);
-			$this->alarm_event_model->save_alert();
+			// $this->alarm_event_model->initialize(1,null,$iSensorId1);
+			// $this->alarm_event_model->save_alert();
 		}
 		
 		if($this->temperature_model->max_temperature_compare($iSensorId2,$iValue2))
 		{
-			$this->alarm_event_model->initialize(1,null,$iSensorId2);
-			$this->alarm_event_model->save_alert();
+			// $this->alarm_event_model->initialize(1,null,$iSensorId2);
+			// $this->alarm_event_model->save_alert();
 		}
 	}
 

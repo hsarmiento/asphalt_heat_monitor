@@ -71,20 +71,28 @@
      
        <div id="camion"></div>
        <div id="camion_temp"></div>
-       <div class="titulos" id="calefacto_area">Calefactor Diesel</div>
+       <div class="titulos" id="calefacto_area">
+        Calefactor Diesel <span id="status_heater"></span>
+      </div>
        
        <div class="titulos" id="hrsdi">Hora de Inicio</div>
        <div class="titulos" id="tf">Tiempo de Funcionamiento</div>
        
        <div id="hrdi_valor">
-         <div class="horadeinicio" id="hrdi_input">00:00:00 AM</div>
+         <div class="horadeinicio" id="hrdi_input">
+           <?php 
+              if($heater['status'] == 0 || empty($heater['status'])){
+                echo '00:00:00';
+              }else{
+              echo $heater['created_at'];
+              } ?>
+         </div>
        </div>
        
        
        <div id="tf_valor">
          <div class="tiempodefuncionamiento" id="tf_input">
-         22:00:22
-         
+         00:00:00    
          </div>
        </div>
        <div class="resumen" id="dato_general">
@@ -93,8 +101,18 @@
 			Ubicación       : Lat. <span id="latitud"><?php echo $pos[0]['latitude'];?></span> / Log. <span id="longitud"><?php echo $pos[0]['longitude'];?></span> <br>
 			Temperatura estanque: <span id="temp1"><?php echo $temp[0]['heat']?></span> <br>
 			Temperatura calefactor: <span id="temp2"><?php echo $temp[1]['heat']?></span> <br>
-			Hora de Inicio  : 08:30:00-AM<br>
-       		Tiempo de Func. : <span id="timer">04:34:19 Hrs.</span>
+
+			Hora de Inicio  : <span id="start_time">
+      <?php 
+          if($heater['status'] == 0 || empty($heater['status'])){
+            echo '00:00:00';
+          }else{
+            echo $heater['created_at'];
+          } 
+         ?>
+          </span>
+          <br>
+       		Tiempo de Func. : <span id="timer">00:00:00 Hrs.</span>
        	</div>
        <div id="box_bts"> 
          <div id="bts_grafico"> 
@@ -169,4 +187,59 @@
 			}
 		});
 	},1000);
+
+  $(function(){
+    setInterval(function(){
+      $.ajax({
+        url: '<?=base_url()?>pcb/ajax_refresh_heater_status/<?=$heater["pcb_id"]?>',
+        dataType: 'json',
+        cache:false 
+      }).done(function(data){
+        if(data.status == '1'){
+          $("#hrdi_input").html(data.created_at);
+          $("#start_time").html(data.created_at);
+          $("#status_heater").html('Estado: PRENDIDO');
+          chrono();
+        }
+        
+        if(data.status == '0'){
+          $("#status_heater").html('Estado: APAGADO');
+          chronoStop();
+        }
+      });
+    },1000)
+  });
+
+  var startTime = 0;
+  var start = 0;
+  var end = 0;
+  var diff = 0;
+  var timerID = 0;
+
+  function chrono(){
+    start = <?php echo strtotime($heater['created_at'])*1000; ?>;
+    end = new Date();
+    end = end.getTime();
+    diff = end - start;
+    document.getElementById("tf_input").innerHTML = msToTime(diff);
+    document.getElementById("timer").innerHTML = msToTime(diff);
+    timerID = setTimeout("chrono()", 2);
+  }
+  function chronoStop(){
+    clearTimeout(timerID)
+  }
+
+  function addZ(n) {
+      return (n<10? '0':'') + n;
+    }
+
+  function msToTime(s) {
+    var ms = s % 1000;
+    s = (s - ms) / 1000;
+    var secs = s % 60;
+    s = (s - secs) / 60;
+    var mins = s % 60;
+    var hrs = (s - mins) / 60;
+    return addZ(hrs) + ':' + addZ(mins) + ':' + addZ(secs);
+  }
 </script>

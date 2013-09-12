@@ -1,22 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Pcb extends CI_Controller {
-
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -  
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in 
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see http://codeigniter.com/user_guide/general/urls.html
-	 */
+class Pcb extends CI_Controller 
+{	
 
 	public function __construct()
 	{
@@ -49,8 +34,9 @@ class Pcb extends CI_Controller {
 				$strIdentifier2 = $temp['sensor_identifier'];
 			}
 		}		
-
-		$this->layout->view('trending', compact('aData1','aData2','strIdentifier1', 'strIdentifier2'));
+		$aPos = $this->position_model->get_last_positions($pcb_id,1);
+		$aTemp = $this->temperature_model->get_last_temperatures($pcb_id);
+		$this->layout->view('trending', compact('aData1','aData2','strIdentifier1', 'strIdentifier2','aPos','aTemp'));
 	}
 
 	public function view($iPcbId)

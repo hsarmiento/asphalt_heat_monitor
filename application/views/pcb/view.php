@@ -5,18 +5,17 @@
 // echo '</pre>';
 ?>
 <div id="general">
- 	<div id="columnaa">
-     <div id="tituloproyecto" class="titulos">Ubicación Acoplado / <span class="patentetitulo"><?php echo $temp[0]['pcb_name']; ?></span></div>
-     <div id="map_canvas"></div>
+  <div id="columnaa">
+    <div id="tituloproyecto" class="titulos">Ubicación Acoplado / <span class="patentetitulo"><?php echo $temp[0]['pcb_name']; ?></span></div>    
     <div id="embed">
-		<div id="mapa"></div>
-		<div id="grafico"></div>
-	</div></div>
+      <div id="map_canvas"></div>		  
+    </div>
+  </div>
   	
     
     
     
-    <div id="columnaselectora">
+  <div id="columnaselectora">
      <div id="tituloproyecto"class="titulos">Acoplado</div>
      
      <div id="selectores">
@@ -103,7 +102,7 @@
          <div id="bts_grafico">
          
          
-        <div class="botongrafico" id="botongrafico"><a href="#">Grafico</a></div>
+        <div class="botongrafico" id="botongrafico"><a href="<?php echo base_url();?>pcb/trending/<?php echo $pos[0]['pcb_id'];?>">Grafico</a></div>
        <div class="botonmapa" id="botonmapa"><a href="#">Ubicación</a></div>
          
          
@@ -172,7 +171,7 @@
 				last_position = posicion;
 				$("#longitud").html(data.longitude);
 				$("#latitud").html(data.latitude);
-			}			
+			}      
 		});
 	},1000);
 </script>

@@ -34,7 +34,7 @@ class Position extends CI_Controller
 	public function ajax_view($iPcbId)
 	{
 		$this->layout->setLayout('ajax_layout');
-		if (!file_exists('application/views/position/view.php'))
+		if (!file_exists('application/views/position/ajax_view.php'))
 		{
 			// Whoops, we don't have a page for that!
 			show_404();
@@ -46,7 +46,7 @@ class Position extends CI_Controller
 		}
 
         $aData['pos'] = $this->Position_model->get_last_positions($iPcbId,1);
-        // $aData['temp'] = $this->Temperature_model->get_last_temperatures($iPcbId);
+        $aData['temp'] = $this->Temperature_model->get_last_temperatures($iPcbId);
 		$this->layout->view('ajax_view', $aData);
 	}
 }

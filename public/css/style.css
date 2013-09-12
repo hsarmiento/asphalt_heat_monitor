@@ -590,7 +590,8 @@ body {
 	width:555px;
 	height:383px;	
 	z-index:100;
-	position:absolute;	}
+	/*position:absolute;*/
+}
 
 /*Culumna Seletora */
 

@@ -114,6 +114,7 @@
 <script>
 	var map;
 	var bounds;
+  var posicion;
 	var last_position;
 	var marker;
 	function initialize() {
@@ -149,8 +150,8 @@
 			url: "<?php echo base_url()?>position/ajax_view/1",
 			dataType: 'json',
 			cache: false
-		}).done(function(data){			
-			var posicion = new google.maps.LatLng(data.latitude,data.longitude);
+		}).done(function(data){
+			posicion = new google.maps.LatLng(data.latitude,data.longitude);      
 			if (posicion.pb != last_position.pb || posicion.qb != last_position.qb) 
 			{
 				marker.setMap(null);
@@ -165,7 +166,7 @@
 				last_position = posicion;
 				$("#longitud").html(data.longitude);
 				$("#latitud").html(data.latitude);
-			}			
+			}
 		});
 	},1000);
 </script>

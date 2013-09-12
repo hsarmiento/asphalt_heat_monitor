@@ -50,8 +50,8 @@ $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
 $db['default']['username'] = 'root';
-// $db['default']['password'] = 'legend';
-$db['default']['password'] = 'cba123*';
+$db['default']['password'] = 'legend';
+// $db['default']['password'] = 'cba123*';
 // $db['default']['username'] = 'bfltda';
 // $db['default']['password'] = 'Kqo7giU2iru^';
 // $db['default']['database'] = 'bfltda_asphalt_heat_monitor';

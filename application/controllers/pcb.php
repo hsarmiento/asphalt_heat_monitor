@@ -36,7 +36,8 @@ class Pcb extends CI_Controller
 		}		
 		$aPos = $this->position_model->get_last_positions($pcb_id,1);
 		$aTemp = $this->temperature_model->get_last_temperatures($pcb_id);
-		$this->layout->view('trending', compact('aData1','aData2','strIdentifier1', 'strIdentifier2','aPos','aTemp'));
+		$aHeater = $this->pcb_model->get_sensor_heater_with_pcb($pcb_id);
+		$this->layout->view('trending', compact('aData1','aData2','strIdentifier1', 'strIdentifier2','aPos','aTemp','aHeater'));
 	}
 
 	public function view($iPcbId)

@@ -168,8 +168,8 @@
 			url: "<?php echo base_url()?>position/ajax_view/1",
 			dataType: 'json',
 			cache: false
-		}).done(function(data){
-			posicion = new google.maps.LatLng(data.latitude,data.longitude);      
+		}).done(function(data){      
+			posicion = new google.maps.LatLng(data.pos.latitude,data.pos.longitude);      
 			if (posicion.pb != last_position.pb || posicion.qb != last_position.qb) 
 			{
 				marker.setMap(null);
@@ -182,8 +182,10 @@
 					position: posicion,				
 				});				
 				last_position = posicion;
-				$("#longitud").html(data.longitude);
-				$("#latitud").html(data.latitude);
+				$("#longitud").html(data.pos.longitude);
+				$("#latitud").html(data.pos.latitude);
+        $("#temp1").html(data.temp1.heat);
+        $("#temp2").html(data.temp2.heat);
 			}
 		});
 	},1000);

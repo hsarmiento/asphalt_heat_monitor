@@ -169,7 +169,7 @@
                     text: 'Temperatura'
                 },
                 min: 0,
-                max: 100,
+                max: 200,
                 plotLines: [{
                     value: 0,
                     width: 1,

@@ -6,7 +6,7 @@
 ?>
 <div id="general">
  	<div id="columnaa">
-     <div id="tituloproyecto" class="titulos">Ubicación Acoplado / <span class="patentetitulo"><?php echo $temp[0]['pcb_name']; ?></span></div>
+     <div id="tituloproyecto" class="titulos">Ubicación Acoplado / <span class="patentetitulo"><?php echo $trailer['identifier']; ?></span></div>
      <div id="map_canvas"></div>
     <div id="embed">
       <div id="map_canvas"></div>		  
@@ -23,7 +23,7 @@
      
      <div id="patentes1">
      
-     <div class="patentes"><a href="<?php echo base_url();?>pcb/view/1"><?php echo $temp[0]['pcb_name']; ?></a></div>
+     <div class="patentes"><a href="<?php echo base_url();?>trailer/view/1"><?php echo $trailer['identifier']; ?></a></div>
      <div class="patentes"><a href="#">BB AF 12</a></div>
      <div class="patentes"><a href="#">RT JE 07</a></div>
      <div class="patentes"><a href="#">RK TF 65</a></div>
@@ -96,9 +96,9 @@
          </div>
        </div>
        <div class="resumen" id="dato_general">
-       		N° Acoplado     : ZK - DF - 09<br>
-			Conductor       : Felipe Nieto<br>
-			Ubicación       : Lat. <span id="latitud"><?php echo $pos[0]['latitude'];?></span> / Log. <span id="longitud"><?php echo $pos[0]['longitude'];?></span> <br>
+       	 N° Acoplado     : <?=$trailer['identifier']?><br>
+			   Conductor       : Rodolfo Machuca<br>
+			   Ubicación       : Lat. <span id="latitud"><?php echo $pos[0]['latitude'];?></span> / Log. <span id="longitud"><?php echo $pos[0]['longitude'];?></span> <br>
 			<!-- Temperatura estanque: <span id="temp1"><?php //echo $temp[0]['heat']?></span> <br> -->
 			<!-- Temperatura calefactor: <span id="temp2"><?php //echo $temp[1]['heat']?></span> <br> -->
 
@@ -193,7 +193,7 @@
   $(function(){
     setInterval(function(){
       $.ajax({
-        url: '<?=base_url()?>pcb/ajax_refresh_heater_status/<?=$heater["pcb_id"]?>',
+        url: '<?=base_url()?>trailer/ajax_refresh_heater_status/<?=$heater["pcb_id"]?>',
         dataType: 'json',
         cache:false 
       }).done(function(data){

@@ -65,6 +65,7 @@ class Trailer extends CI_Controller
 		$this->load->model('pcb_model');
 		$this->load->model('position_model');
 		$this->load->model('temperature_model');
+		$aData['trailer'] = $this->trailer_model->get_trailer_data($trailer_id);
 		$iPcbId = $this->pcb_model->get_pcb_id_with_trailer($trailer_id);
         $aData['pos'] = $this->position_model->get_last_positions($iPcbId,1);
         $aData['temp'] = $this->temperature_model->get_last_temperatures($iPcbId);

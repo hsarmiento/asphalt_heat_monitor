@@ -115,7 +115,7 @@
          
          
         <div class="botongrafico" id="botongrafico"><a href="#">Grafico</a></div>
-        <div class="botonmapa" id="botonmapa"><a href="<?php echo base_url();?>pcb/view/<?php echo $aPos[0]['pcb_id'];?>">Ubicación</a></div>
+        <div class="botonmapa" id="botonmapa"><a href="<?php echo base_url();?>trailer/view/<?php echo $aTrailerData['id'];?>">Ubicación</a></div>
          
          
          </div>
@@ -160,7 +160,7 @@
             yAxis: {
 
                 title: {
-                    text: 'Temperatura'
+                    text: 'Temperatura °C'
                 },
                 min: 0,
                 max: 200,
@@ -183,11 +183,8 @@
                 }
             },
             series: [{
-                name: 'T° sensor1',
+                name: 'Temp °C sensor1',
                 data: [<?php echo join($aData1, ",");?>]          
-            },{
-                name: 'T°sensor2',
-                data: [<?php echo join($aData2, ",");?>]
             }
             ]
         });
@@ -195,7 +192,7 @@
 $(function(){
     setInterval(function(){
       $.ajax({
-        url: '<?=base_url()?>pcb/ajax_refresh_heater_status/<?=$aHeater["pcb_id"]?>',
+        url: '<?=base_url()?>trailer/ajax_refresh_heater_status/<?=$aHeater["pcb_id"]?>',
         dataType: 'json',
         cache:false 
       }).done(function(data){

@@ -50,16 +50,16 @@ class Trailer extends CI_Controller
 
 	public function view($trailer_id)
 	{
-		if (!file_exists('application/views/pcb/view.php'))
+		if (!file_exists('application/views/trailer/view.php'))
 		{
 			// Whoops, we don't have a page for that!
 			show_404();
 		}
-		//si trata de ver la posicion de un pcb que no registra posiciones
-		if ($this->position_model->exist_pcbid($iPcbId) === false)
-		{
-			show_error('No se registran posiciones para este pcb');
-		}
+		//si trata de ver la posicion de un pcb que no registra posiciones #falta cambiar esta funcion
+		// if ($this->position_model->exist_pcbid($iPcbId) === false)
+		// {
+		// 	show_error('No se registran posiciones para este pcb');
+		// }
 
 		$this->load->model('sensor_model');
 		$this->load->model('pcb_model');

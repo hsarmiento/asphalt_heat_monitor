@@ -116,7 +116,7 @@
        	</div>
        <div id="box_bts"> 
          <div id="bts_grafico"> 
-            <div class="botongrafico" id="botongrafico"><a href="<?php echo base_url();?>pcb/trending/<?php echo $pos[0]['pcb_id'];?>">Grafico</a></div>
+            <div class="botongrafico" id="botongrafico"><a href="<?php echo base_url();?>trailer/trending/<?php echo $pos[0]['pcb_id'];?>">Grafico</a></div>
             <div class="botonmapa" id="botonmapa"><a href="#">Ubicación</a></div> 
          </div>
          

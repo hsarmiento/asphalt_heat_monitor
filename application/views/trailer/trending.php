@@ -92,8 +92,8 @@
             N° Acoplado     : <?=$aTrailerData["identifier"]?><br>
             Conductor       : Felipe Nieto<br>
             Ubicación       : Lat. <span id="latitud"><?php echo $aPos[0]['latitude'];?></span> / Log. <span id="longitud"><?php echo $aPos[0]['longitude'];?></span> <br>
-            Temperatura estanque: <span id="temp1"><?php echo $aTemp[0]['heat']?></span> <br>
-            Temperatura calefactor: <span id="temp2"><?php echo $aTemp[1]['heat']?></span> <br>
+            <!-- Temperatura estanque: <span id="temp1"><?php //echo $aTemp[0]['heat']?></span> <br> -->
+            <!-- Temperatura calefactor: <span id="temp2"><?php //echo $aTemp[1]['heat']?></span> <br> -->
             Hora de Inicio  : 
             <span id="start_time">
                 <?php 

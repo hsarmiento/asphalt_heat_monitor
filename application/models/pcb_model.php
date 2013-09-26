@@ -64,4 +64,13 @@ class Pcb_model extends CI_Model {
         return $query->row_array();
     }
 
+    public function get_pcb_id_with_trailer($trailer_id)
+    {
+        $this->db->select('id')
+        ->from('pcb')
+        ->where('trailer_id', $trailer_id);
+        $aQuery = $this->db->get()->row_array();
+        return $aQuery['id'];
+    }
+
 }

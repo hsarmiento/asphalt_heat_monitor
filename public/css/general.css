@@ -1,0 +1,733 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+
+body {
+	background-color: #333;
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-image: url(../img/tapiz.png);
+}
+
+
+.titulos {
+	font-family:Arial, Helvetica, sans-serif;
+	color: #FFF;
+	font-size:14px;
+	}
+	
+.patentes {
+	font-family:Arial, Helvetica, sans-serif;
+	color: #FFF;
+	font-size:14px;
+	height: 19px;
+	width: 90%;
+	margin-right: auto;
+	margin-left: 0px;
+	text-align: center;
+	padding-top: 10px;
+	}
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+	.patentes_bts {
+	font-family:Arial, Helvetica, sans-serif;
+	color: #FFF;
+	font-size:14px;
+	height: 19px;
+	width: 90%;
+	margin-right: auto;
+	margin-left: 0px;
+	text-align: center;
+	padding-top: 10px;	
+	}
+	
+		#patentes_bts_1 {
+	height: 15px;
+	width: 45px;
+	float: left;
+
+	}
+	
+			#graficos_bts_1 {
+	height: 15px;
+	width: 45px;
+	
+
+	}
+	
+			#botonmapa {
+	height: 30px;
+	width: 60px;
+	float: right;
+	border: thin dotted #CCC;
+	
+	}
+	
+	
+			.botonmapa {
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #CCC;
+	}
+	
+				.botonmapa a {
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #CCC;
+		text-decoration: none;
+	}
+	
+					.botonmapa a:hover {
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #CCC;
+	}
+	
+				#botongrafico  {
+	height: 30px;
+	width: 60px;
+	float: left;
+	border: thin dotted #CCC;
+	margin-right: 10px;
+	}
+
+	
+	
+	
+				
+	
+			.botongrafico {
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #CCC;
+	}
+	
+				.botongrafico a {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #CCC;
+	text-decoration: none;
+	}
+	
+					.botongrafico a:hover {
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #CCC;
+	}
+	
+	
+	
+	.sensor {
+	margin-left: 10px;
+	font-family: Arial, Helvetica, sans-serif!important;
+	font-size: 11px!important;
+	font-weight: bold!important;
+	color: #FC0!important;
+	float: left;
+	height: 15px;
+	width: 45px;
+	text-align: center!important;
+	}
+	
+		.sensor a {
+	margin-left: 5px;
+	font-family: Arial, Helvetica, sans-serif!important;
+	font-size: 11px!important;
+	font-weight: bold!important;
+	color: #FC0!important;
+	}
+	
+			.sensor a:hover {
+	margin-left: 5px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px!important;
+	font-weight: bold!important;
+	color: #fff!important;
+	}
+	
+	
+	.placa {
+	margin-left: 5px;
+	font-family: Arial, Helvetica, sans-serif!important;
+	font-size: 11px!important;
+	font-weight: bold;
+	color: #FC0!important;
+	float: left;
+	height: 15px;
+	width: 45px;
+	text-align: center!important;
+	}
+	
+		.placa a {
+	margin-left: 5px;
+	font-family: Arial, Helvetica, sans-serif!important;
+	font-size: 11px!important;
+	font-weight: bold!important;
+	color: #FC0!important;
+	}
+	
+			.placa a:hover {
+	margin-left: 5px;
+	font-family: Arial, Helvetica, sans-serif!important;
+	font-size: 11px!important;
+	font-weight: bold!important;
+	color: #fff!important;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+			.mapa_bts_2 {
+	height: 15px;
+	width: 45px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #CCC;	
+
+	}
+	
+				.mapa_bts_1 a {
+	height: 15px;
+	width: 45px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #fff;	
+
+	}
+	
+			.grafico_bts_1 {
+	height: 15px;
+	width: 45px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #CCC;	
+
+	}
+	
+			.grafico_bts_1 a {
+	height: 15px;
+	width: 45px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #CCC;	
+
+	}
+	
+				.grafico_bts_1 a {
+	height: 15px;
+	width: 45px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #fff;	
+
+	}
+	
+	
+			#mapa_bts_1 {
+	height: 15px;
+	width: 45px;
+	
+
+	}
+		.patentes_bts_1 {
+	margin-left: 10px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #fff;
+	text-decoration: none;
+	}
+	
+		.patentes_bts_1 a {
+	margin-left: 10px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #fff;
+	text-decoration: none;
+	}
+	
+			.patentes_bts_1 a:hover {
+	margin-left: 10px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #3CF;
+	text-decoration: none;
+	}
+	
+			#patentes_bts_2 {
+	height: 15px;
+	width: 45px;
+	float: left;
+	
+	}
+	
+				.patentes_bts_2 {
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #fff;
+	text-decoration: none;
+	
+	}
+	
+	.patentes_bts_2 a {
+	margin-left: 10px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #fff;
+	text-decoration: none;
+	}
+	
+			.patentes_bts_2 a:hover {
+	margin-left: 10px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #3CF;
+	text-decoration: none;
+	}
+	
+	
+	.patentes a {
+	font-family:Arial, Helvetica, sans-serif;
+	color: #FFF;
+	font-size:14px;
+	height: 30px;
+	width: 90%;
+	margin-right: auto;
+	margin-left: auto;
+	text-align: center;
+	text-decoration: none;
+	}	
+	
+	.patentes a:hover {
+	font-family:Arial, Helvetica, sans-serif;
+	color: #FC0;
+	font-size:14px;
+	}	
+	
+.aletaroja{ font-family: "Courier New", Courier, monospace;
+		font-size:14px;
+		color:#F00;
+	}
+.sineventos {
+	font-family: "Courier New", Courier, monospace;
+		font-size:14px;
+		color: #9C0;}
+
+.patentetitulo{
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight:bolder;
+	color:#FFF;
+	}
+
+
+.resumen { font-family:"Courier New", Courier, monospace;
+	font-size:11px;
+	color:#FFF;
+	}
+	
+.horadeinicio { font-family:Arial, Helvetica, sans-serif;
+	font-size: 20px;
+	color:#FFF;
+	}
+	
+.tiempodefuncionamiento { font-family:Arial, Helvetica, sans-serif;
+	font-size: 20px;
+	color:#FFF;
+	}
+	
+.temp { font-family:Arial, Helvetica, sans-serif;
+	font-size:10px;
+	color:#FFF;
+	}
+	
+.titulodeadvertencia { font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size:21px;
+	color:#FFF;
+	font-weight:bolder;
+}
+
+.datoadvertencia { font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size:18px;
+	color:#FFF;
+	font-weight:bolder;
+}
+
+.minibarra { font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size:10px;
+	color:#FFF;
+
+}
+
+
+
+#general {
+	width:1212px;
+	height:569px;
+	margin-left:auto;
+	margin-right:auto;
+	background-repeat:no-repeat;
+	background-position: center top;
+}	
+
+#head {
+	width: 100%;
+	height: 146px;
+	background-image: url(../img/bg_head.png);
+	background-repeat: repeat-x;
+	background-position: left top;	
+	}
+#headcentral { 
+	width:100%;
+	height:146px;
+	background-image: url(../img/head.png);
+	background-repeat: no-repeat;
+	background-position: center top;
+	margin-left:auto;
+	margin-right:auto;	
+	
+	}
+	
+#logoradic {
+	width:153px;
+	height:131px;
+	float:left;
+	mar
+; 	background-image: url(../img/logo_radic.png);
+	}
+	
+	
+#nombreproyecto {
+	width: 223px;
+	height:131px;
+	float:right;
+	background-image: url(../img/proyecto.png);
+	background-repeat: no-repeat;
+	background-position: 0px 90px;
+	}
+	
+#tituloproyecto {
+	height:auto;
+	width:100%;
+	padding-top:60px;
+	padding-bottom:10px;
+	}
+	
+	#camion {
+	height: 230px;
+	width: 402px;
+	float: left;
+	background-image: url(../img/acoplado.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	}
+	
+	
+	#camion_temp {
+	height:230px;
+	width:90px;
+    float:left; 
+	}
+	
+	
+	#calefacto_area {
+	height: 20px;
+	width: 500px;
+	float: left;
+	margin-top: 15px;
+	padding-top: 5px;
+	padding-left: 4px;
+	}
+
+	#box_off_on {
+	height: 20px;
+	width: 100px;
+	float: right;
+	
+	
+	padding-left: 10px;
+	}
+	
+		#box_calefactor_titu {
+	height: 20px;
+	width: 200px;
+	float: left;
+
+	padding-left: 5px;
+	}
+
+
+#hrsdi {
+	height: 20px;
+	width: 190px;
+	float: left;
+	margin-top: 10px;
+	padding-top: 3px;
+	padding-left: 10px;	
+	}
+	
+	#tf {
+	height: 20px;
+	width: 180px;
+	float: left;
+	margin-top: 10px;
+	margin-left: 55px;
+	padding-top: 3px;
+	padding-left: 10px;
+	}
+	
+	
+	#hrdi_valor {
+	height:40px;
+	width:252px;
+	float:left;
+	margin-top: 15px;
+	
+	}
+	
+	
+	
+	
+	#hrdi_input {
+	height: 28px;
+	width: 100%;
+	margin-right: auto;
+	margin-left: auto;
+	text-align: center;
+	vertical-align: middle;
+	padding-top: 10px;
+	}
+	
+	
+	
+	#tf_input {
+	height: 100%;
+	width: 180px;
+	float: right;
+	padding-top: 6px;
+	
+	}
+	
+	#tf_valor {
+	height: 37px;
+	width: 240px;
+	float: left;
+	margin-top: 15px;
+	margin-left: 10px;
+	padding-top: 3px;
+	padding-left: 10px;	
+	}
+	
+	
+	#dato_general {
+	height: 80px;
+	width: 324px;
+	float: left;
+	margin-top: 30px;
+	padding-top: 10px;
+	padding-left: 10px;
+	border-right-width: thin;
+	border-right-style: dotted;
+	border-right-color: #999;	
+	}
+	
+	
+	
+	
+	#dato_general_a {
+	height: 80px;
+	width: 100px;
+	float: left;
+
+	
+	}
+	
+		#dato_general_b {
+	height: 80px;
+	width: 100px;
+	float: left;
+
+	
+	}
+	
+	
+		#box_bts {
+	height:90px;
+	width:150px;
+	float:left;
+	margin-top: 30px;
+	margin-left: 15px;
+	
+	}
+	
+		#bts_grafico {
+	height:40px;
+	width:75px;
+	}
+	
+
+	
+		#bts_alerta {
+	height:40px;
+	width:100%;
+	margin-top: 5px;
+	
+
+	
+	}
+	
+	
+
+	
+	
+	#embed { width:555px;
+	          height:383px;
+	
+	}
+
+	
+	
+		#box_aplicacion {
+	width: 100%;
+	height: 35px;
+	margin-bottom: 10px;	
+	}
+
+	
+	
+
+	
+
+
+
+#columnaa{
+	width:565px;
+	height:569px;
+	float:left; }
+	
+#malla {
+	width:555px;
+	height:383px;
+	background-image: url(../img/malla.png);
+	background-repeat:no-repeat;
+	z-index:100;
+	position:absolute;	}
+	
+
+
+	
+
+
+
+#columnaselectora { width:126px;
+	height: 569px;
+	float:left;
+	}
+	
+	#patentes1 { 
+	width:100%;
+	height:260px;
+	
+	}
+	
+	#mapa {
+	width: 555px;
+	height: 383px;
+	background-color: #4F4E4E;
+	}
+	
+	#grafico {
+	width: 555px;
+	height: 383px;
+	display: none;
+	background-color: #4F4E4E;
+	}
+	
+	
+		#patentes2 {
+	width: 100%;
+	height: 260px;
+	display: none;	
+	
+	}
+	
+	
+#selectores {
+	width:126px;
+	height: 370px;
+	float:left;
+	background-image: url(../img/bg_selector.png);
+	background-repeat:no-repeat;
+	padding-top: 13px;
+	}
+#columnab { width:521px;
+	height:569px;
+	float:left;
+	
+}
+
+#datoscolumnab {
+	width:521px;
+	height:502px;
+	background-image: url(../img/bg_area_b.png);
+	background-repeat:no-repeat;
+
+	
+	}
+	
+	
+	#footer {
+	width:100%;
+	height:147px;
+
+
+	
+	}
+	
+	
+		#footer_central {
+	width: 100%;
+	height: 147px;
+	background-image: url(../img/pie.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	margin-top: 50px;
+	
+	}

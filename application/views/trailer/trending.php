@@ -183,7 +183,7 @@
                 }
             },
             series: [{
-                name: 'Temp °C sensor1',
+                name: 'Temp °C sensor2',
                 data: [<?php echo join($aData1, ",");?>]          
             }
             ]

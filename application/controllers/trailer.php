@@ -37,7 +37,7 @@ class Trailer extends CI_Controller
 		$aTrailerData = $this->trailer_model->get_trailer_data($trailer_id);
 		$aData1 = array();
 		foreach ($aTemp as $temp) {
-			if($temp['sensor_id'] == $aSensorId[0]['id'] ){
+			if($temp['sensor_id'] == $aSensorId[1]['id'] ){
 				$aData1[] = "[".(mktime(date("H", strtotime($temp['created_at']))-4, date("i", strtotime($temp['created_at'])), date("s", strtotime($temp['created_at'])), date("m", strtotime($temp['created_at'])), date("d", strtotime($temp['created_at'])), date("Y", strtotime($temp['created_at'])))*1000).",".$temp['t_value']."]";
 				$strIdentifier1 = $temp['sensor_identifier'];
 			}

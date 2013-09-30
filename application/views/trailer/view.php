@@ -99,8 +99,8 @@
        	 N° Acoplado     : <?=$trailer['identifier']?><br>
 			   Conductor       : Rodolfo Machuca<br>
 			   Ubicación       : Lat. <span id="latitud"><?php echo $pos[0]['latitude'];?></span> / Log. <span id="longitud"><?php echo $pos[0]['longitude'];?></span> <br>
-			<!-- Temperatura estanque: <span id="temp1"><?php //echo $temp[0]['heat']?></span> <br> -->
-			<!-- Temperatura calefactor: <span id="temp2"><?php //echo $temp[1]['heat']?></span> <br> -->
+			   Temperatura estanque: <span id="temp1"><?php echo $temp[0]['heat']?></span> <br>
+			   Temperatura calefactor: <span id="temp2"><?php echo $temp[1]['heat']?></span> <br>
 
 			Hora de Inicio  : <span id="start_time">
       <?php 
@@ -184,8 +184,8 @@
 				last_position = posicion;
 				$("#longitud").html(data.pos.longitude);
 				$("#latitud").html(data.pos.latitude);
-        // $("#temp1").html(data.temp1.heat);
-        // $("#temp2").html(data.temp2.heat);
+        $("#temp1").html(data.temp1.heat);
+        $("#temp2").html(data.temp2.heat);
 			}
 		});
 	},1000);

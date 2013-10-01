@@ -9,7 +9,7 @@
 	    <title><?php echo $this->layout->getTitle(); ?></title>
 	    
 		<meta name="description" content="<?php echo $this->layout->getDescripcion(); ?>">
-		<!-- <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>public/css/style.css"> -->
+		<!-- <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>public/css/general.css"> -->
 		<meta name="keywords" content="<?php echo $this->layout->getKeywords(); ?>" />
 	    <!-- <link href="<?php echo base_url()?>public/css/estilos.css" rel='stylesheet' type='text/css' media='all' /> -->
 	    <script type="text/javascript" src="<?php echo base_url()?>public/js/jquery-1.10.2.js"></script>

@@ -731,3 +731,11 @@ body {
 	margin-top: 50px;
 	
 	}
+
+ #off_img{
+ 	display:none;
+ }
+
+ #on_img{
+ 	display:none;
+ }

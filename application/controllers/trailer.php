@@ -45,6 +45,8 @@ class Trailer extends CI_Controller
 		$aPos = $this->position_model->get_last_positions($iPcbId,1);
 		$aTemp = $this->temperature_model->get_last_temperatures($iPcbId);
 		$aHeater = $this->pcb_model->get_sensor_heater_with_pcb($iPcbId);
+		$this->layout->css(array(base_url().'public/css/general.css'));
+		$this->layout->setTitle('Sistema control asfalto | Gráfico');
 		$this->layout->view('trending', compact('aData1','strIdentifier1', 'strIdentifier2','aPos','aTemp','aHeater','aTrailerData'));
 	}
 

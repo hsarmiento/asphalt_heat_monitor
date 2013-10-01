@@ -37,7 +37,7 @@ $(document).on("ready", function (){
 	
 	
 	$('#botonmapa').click(function(){
-		$('#mapa').delay(500).fadeToggle();
+		// $('#mapa').delay(500).fadeToggle();
 		$('#grafico').fadeOut();
 		
 	

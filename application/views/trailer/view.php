@@ -1,7 +1,6 @@
 <?php
 // echo '<pre>';
-// print_r($pos);
-// print_r($temp);
+// print_r($trailer);
 // echo '</pre>';
 ?>
 <div id="general">
@@ -9,7 +8,7 @@
      <div id="tituloproyecto" class="titulos">Ubicación Acoplado / <span class="patentetitulo"><?php echo $trailer['identifier']; ?></span></div>
      <div id="map_canvas"></div>
     <div id="embed">
-      <div id="map_canvas"></div>		  
+      <div id="mapa"></div>		  
     </div>
   </div>
   	
@@ -72,7 +71,11 @@
        <div id="camion"></div>
        <div id="camion_temp"></div>
        <div class="titulos" id="calefacto_area">
-        Calefactor Diesel <span id="status_heater"></span>
+        <div id="box_calefactor_titu">Calefactor Diesel</div>
+         <div id="box_off_on">
+            <span id="off_img"><img src="<?php echo base_url()?>public/img/off.png" width="73" height="20"></span>
+            <span id="on_img"><img src="<?php echo base_url()?>public/img/on.png" width="73" height="20"></span>
+         </div>
       </div>
        
        <div class="titulos" id="hrsdi">Hora de Inicio</div>
@@ -114,15 +117,12 @@
           <br>
        		Tiempo de Func. : <span id="timer">00:00:00 Hrs.</span>
        	</div>
-       <div id="box_bts"> 
-         <div id="bts_grafico"> 
-            <div class="botongrafico" id="botongrafico"><a href="<?php echo base_url();?>trailer/trending/<?php echo $pos[0]['pcb_id'];?>">Grafico</a></div>
-            <div class="botonmapa" id="botonmapa"><a href="#">Ubicación</a></div> 
-         </div>
-         
-         
-         
-         <div id="bts_alerta"><a href="#"><img src="<?php echo base_url();?>public/img/alerta.png" width="60" height="40" border="0" ></a></div>
+        <div id="box_bts"> 
+          <div id="box_aplicacion">
+            <div class="botongrafico" id="botongrafico"><a href="<?php echo base_url();?>trailer/trending/<?php echo $trailer['id'];?>"><img src="<?php echo base_url()?>public/img/grafico.png" width="61" height="30" border="0"></a></div>
+            <div class="botonmapa" id="botonmapa"><a href="#"><img src="<?php echo base_url()?>public/img/mapa.png" width="61" height="30" border="0"></a></div>
+          </div>
+          <div id="bts_alerta"><img src="<?php echo base_url()?>public/img/alerta_1.png" width="150" height="40"></div>
        </div>
      </div>
      
@@ -144,7 +144,7 @@
 		    mapTypeId: google.maps.MapTypeId.ROADMAP
 	  	};
 
-		map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+		map = new google.maps.Map(document.getElementById("mapa"), mapOptions);
 
 		marker = new google.maps.Marker({
 			map:map,
@@ -168,7 +168,8 @@
 			url: "<?php echo base_url()?>position/ajax_view/1",
 			dataType: 'json',
 			cache: false
-		}).done(function(data){      
+		}).done(function(data){
+      console.log(data.pos);
 			posicion = new google.maps.LatLng(data.pos.latitude,data.pos.longitude);      
 			if (posicion.pb != last_position.pb || posicion.qb != last_position.qb) 
 			{
@@ -200,12 +201,14 @@
         if(data.status == '1'){
           $("#hrdi_input").html(data.created_at);
           $("#start_time").html(data.created_at);
-          $("#status_heater").html('Estado: PRENDIDO');
+          $("#on_img").fadeIn("slow");
+          $("#off_img").fadeOut("fast");
           chrono();
         }
         
         if(data.status == '0'){
-          $("#status_heater").html('Estado: APAGADO');
+          $("#off_img").fadeIn("slow");
+          $("#on_img").fadeOut("fast");
           chronoStop();
         }
       });

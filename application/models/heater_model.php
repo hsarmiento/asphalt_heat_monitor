@@ -3,8 +3,7 @@
 class Heater_model extends CI_Model {
 
 	var $iSensorId = 0;
-    var $iStatus = 0;
-    var $dCreatedAt = NULL;
+    var $iStatus = 0;    
     var $dStoppedAt = NULL;
 
 
@@ -14,17 +13,16 @@ class Heater_model extends CI_Model {
         parent::__construct();
     }
 
-    public function initialize($sensor_id, $status, $created_at, $stopped_at)
+    public function initialize($sensor_id, $status, $stopped_at)
     {
         $this->iSensorId = $sensor_id;
         $this->iStatus = $status;
-        $this->dCreatedAt = $created_at;
         $this->dStoppedAt = $stopped_at;
     }
 
     public function save_heater_status()
     {
-        $data = array('sensor_id'=>$this->iSensorId, 'status'=>$this->iStatus, 'created_at'=>$this->dCreatedAt, 'stopped_at'=> $this->dStoppedAt);
+        $data = array('sensor_id'=>$this->iSensorId, 'status'=>$this->iStatus, 'stopped_at'=> $this->dStoppedAt);
         $this->db->insert('heaters',$data);
         if($this->db->affected_rows() == '1')
         {
@@ -54,6 +52,17 @@ class Heater_model extends CI_Model {
         }
 
         return FALSE;
+    }
+
+    public function check_heater_status($sensor_id)
+    {
+        $this->db->select('*')
+        ->from('heaters')
+        ->where('sensor_id', $sensor_id)
+        ->order_by('created_at', 'desc')
+        ->limit(1);
+        $aResult = $this->db->get()->row_array();
+        return $aResult['status'];
     }
 
 }

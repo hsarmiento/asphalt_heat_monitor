@@ -61,4 +61,17 @@ class Temperature_model extends CI_Model {
             return FALSE;
         }  
     }
+
+    public function check_temp_one_hour_before($sensor_id, $current_temp)
+    {
+        $query = $this->db->query('SELECT * from temperature where sensor_id = '.$sensor_id.' and TIMESTAMPDIFF(MINUTE, created_at, now()) >= 60 
+                and TIMESTAMPDIFF(MINUTE, created_at, now()) < 80 order by created_at desc limit 1');
+        if($query->num_rows()>0){
+           $aOneHourBefore = $query->row_array(); 
+           if(3 <= $current_temp - $aOneHourBefore['value'] && $current_temp - $aOneHourBefore['value'] <= 8 ){
+                return TRUE;
+            }
+        }
+        return FALSE;
+    }
 }

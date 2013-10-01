@@ -37,6 +37,7 @@ class Temperature extends CI_Controller {
 		$this->load->model('alarm_event_model');
 		$this->load->model('sensor_model');
 		$this->load->model('pcb_model');
+		$this->load->model('heater_model');
 		$iSensorIdentifier1 = $this->uri->segment(3,0);
 		$iValue1 = $this->uri->segment(4,0);
 		$iSensorIdentifier2 = $this->uri->segment(5,0);
@@ -54,17 +55,25 @@ class Temperature extends CI_Controller {
 		$this->temperature_model->save_temperature_value();
 		$this->position_model->initialize($iPcbId,$fLatitude, $fLongitude);
 		$this->position_model->save_position();
-		if($this->temperature_model->max_temperature_compare($iSensorId1,$iValue1))
-		{
-			// $this->alarm_event_model->initialize(1,null,$iSensorId1);
-			// $this->alarm_event_model->save_alert();
+
+		if($this->temperature_model->check_temp_one_hour_before($iSensorId1,$iValue1)){
+			if($this->heater_model->check_heater_status($iSensorId1) == 0){
+				$this->heater_model->initialize($iSensorId1,1,NULL);
+				$this->heater_model->save_heater_status();
+			}
 		}
+
+		// if($this->temperature_model->max_temperature_compare($iSensorId1,$iValue1))
+		// {
+		// 	// $this->alarm_event_model->initialize(1,null,$iSensorId1);
+		// 	// $this->alarm_event_model->save_alert();
+		// }
 		
-		if($this->temperature_model->max_temperature_compare($iSensorId2,$iValue2))
-		{
-			// $this->alarm_event_model->initialize(1,null,$iSensorId2);
-			// $this->alarm_event_model->save_alert();
-		}
+		// if($this->temperature_model->max_temperature_compare($iSensorId2,$iValue2))
+		// {
+		// 	// $this->alarm_event_model->initialize(1,null,$iSensorId2);
+		// 	// $this->alarm_event_model->save_alert();
+		// }
 	}
 
 

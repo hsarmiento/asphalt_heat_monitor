@@ -15,12 +15,20 @@ class Trailer extends CI_Controller
 		$this->load->model('pcb_model');
 		$this->load->model('position_model');
 		$this->load->model('temperature_model');
-		$this->load->model('alarm_event_model');
 		$iPcbId = $this->pcb_model->get_pcb_id_with_trailer($trailer_id);	
 		$aPos = $this->position_model->get_last_positions($iPcbId,1);
 		$aTemp = $this->temperature_model->get_last_temperatures($iPcbId);
+		$this->layout->css(array(base_url().'public/css/alarms_events.css'));
+		$this->layout->setTitle('Sistema control asfalto');
+		$this->layout->view('index',compact('aPos','aTemp'));
+	}
+
+	public function alarms_events()
+	{
+		$this->load->model('alarm_event_model');
 		$aAlarmsEvents = $this->alarm_event_model->get_all_alarm();
-		$this->layout->view('index',compact('aPos','aTemp','aAlarmsEvents'));
+		$this->layout->css(array(base_url().'public/css/partial_alarms_events.css'));
+		$this->layout->view('alarms_events',compact('aAlarmsEvents'));
 	}
 
 

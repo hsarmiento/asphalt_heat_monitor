@@ -38,7 +38,7 @@
 |
 */
 
-$route['default_controller'] = "pcb";
+$route['default_controller'] = "trailer";
 $route['404_override'] = '';
 
 

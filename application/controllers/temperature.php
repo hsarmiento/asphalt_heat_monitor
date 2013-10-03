@@ -56,9 +56,9 @@ class Temperature extends CI_Controller {
 		$this->position_model->initialize($iPcbId,$fLatitude, $fLongitude);
 		$this->position_model->save_position();
 
-		if($this->temperature_model->check_temp_one_hour_before($iSensorId1,$iValue1)){
+		if($this->temperature_model->check_temp_one_hour_before($iSensorId2,$iValue2)){
 			if($this->heater_model->check_heater_status($iSensorId1) == 0){
-				$this->heater_model->initialize($iSensorId1,1,NULL);
+				$this->heater_model->initialize($iSensorId2,1,NULL);
 				$this->heater_model->save_heater_status();
 			}
 		}

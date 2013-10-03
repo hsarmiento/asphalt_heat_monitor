@@ -156,8 +156,12 @@
                 }
             },
             series: [{
-                name: 'Temp °C sensor2',
+                name: 'Temp interna estanque °C ',
                 data: [<?php echo join($aData1, ",");?>]          
+            },
+            {
+                name: 'Temp dispositivo electronico GPS °C',
+                data: [<?php echo join($aData2, ",");?>]          
             }
             ]
         });

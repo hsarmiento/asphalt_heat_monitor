@@ -68,8 +68,9 @@ class Temperature_model extends CI_Model {
                 and TIMESTAMPDIFF(MINUTE, created_at, now()) < 80 order by created_at desc limit 1');
         if($query->num_rows()>0){
            $aOneHourBefore = $query->row_array(); 
-           if(3 <= $current_temp - $aOneHourBefore['value'] && $current_temp - $aOneHourBefore['value'] <= 8 ){
+           if(4 <= ($current_temp - $aOneHourBefore['value']) && ($current_temp - $aOneHourBefore['value']) <= 10 && $aOneHourBefore['value'] > 90 && $current_temp > 90 ){
                 return TRUE;
+
             }
         }
         return FALSE;

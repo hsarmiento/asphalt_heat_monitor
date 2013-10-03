@@ -44,10 +44,15 @@ class Trailer extends CI_Controller
 		$aTemp = $this->pcb_model->get_trending_temperature($iPcbId);
 		$aTrailerData = $this->trailer_model->get_trailer_data($trailer_id);
 		$aData1 = array();
+		$aData2 = array();
 		foreach ($aTemp as $temp) {
 			if($temp['sensor_id'] == $aSensorId[1]['id'] ){
 				$aData1[] = "[".(mktime(date("H", strtotime($temp['created_at']))-4, date("i", strtotime($temp['created_at'])), date("s", strtotime($temp['created_at'])), date("m", strtotime($temp['created_at'])), date("d", strtotime($temp['created_at'])), date("Y", strtotime($temp['created_at'])))*1000).",".$temp['t_value']."]";
 				$strIdentifier1 = $temp['sensor_identifier'];
+			}
+			if($temp['sensor_id'] == $aSensorId[0]['id'] ){
+				$aData2[] = "[".(mktime(date("H", strtotime($temp['created_at']))-4, date("i", strtotime($temp['created_at'])), date("s", strtotime($temp['created_at'])), date("m", strtotime($temp['created_at'])), date("d", strtotime($temp['created_at'])), date("Y", strtotime($temp['created_at'])))*1000).",".$temp['t_value']."]";
+				$strIdentifier2 = $temp['sensor_identifier'];
 			}
 		}		
 		$aPos = $this->position_model->get_last_positions($iPcbId,1);
@@ -55,7 +60,7 @@ class Trailer extends CI_Controller
 		$aHeater = $this->pcb_model->get_sensor_heater_with_pcb($iPcbId);
 		$this->layout->css(array(base_url().'public/css/general.css'));
 		$this->layout->setTitle('Sistema control asfalto | Gráfico');
-		$this->layout->view('trending', compact('aData1','strIdentifier1', 'strIdentifier2','aPos','aTemp','aHeater','aTrailerData'));
+		$this->layout->view('trending', compact('aData1','aData2','strIdentifier1', 'strIdentifier2','aPos','aTemp','aHeater','aTrailerData'));
 	}
 
 	public function view($trailer_id)

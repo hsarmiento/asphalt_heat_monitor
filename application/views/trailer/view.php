@@ -1,8 +1,4 @@
-<?php
-// echo '<pre>';
-// print_r($trailer);
-// echo '</pre>';
-?>
+
 <div id="general">
  	<div id="columnaa">
      <div id="tituloproyecto" class="titulos">Ubicación Acoplado / <span class="patentetitulo"><?php echo $trailer['identifier']; ?></span></div>
@@ -203,7 +199,7 @@
           $("#start_time").html(data.created_at);
           $("#on_img").fadeIn("slow");
           $("#off_img").fadeOut("fast");
-          chrono();
+          chrono(data.created_at);
         }
         
         if(data.status == '0'){
@@ -221,14 +217,16 @@
   var diff = 0;
   var timerID = 0;
 
-  function chrono(){
-    start = <?php echo strtotime($heater['created_at'])*1000; ?>;
+  function chrono(created_at){
+    // start = <?php echo strtotime($heater['created_at'])*1000; ?>;
+    start = new Date(created_at);
+    start = start.getTime();
     end = new Date();
     end = end.getTime();
     diff = end - start;
     document.getElementById("tf_input").innerHTML = msToTime(diff);
     document.getElementById("timer").innerHTML = msToTime(diff);
-    timerID = setTimeout("chrono()", 2);
+    // timerID = setTimeout("chrono()", 2);
   }
   function chronoStop(){
     clearTimeout(timerID)

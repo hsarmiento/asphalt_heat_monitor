@@ -26,7 +26,7 @@ class Pcb_model extends CI_Model {
                 as sensor_identifier, temperature.value as t_value, temperature.created_at as created_at 
                 FROM (pcb) LEFT JOIN sensors ON pcb.id = sensors.pcb_id 
                 JOIN temperature ON sensors.id = temperature.sensor_id WHERE pcb.id = '.$pcb_id.' 
-                and temperature.created_at >= NOW() - INTERVAL 1 DAY 
+                and temperature.created_at >= NOW() - INTERVAL 3 DAY 
                 ORDER BY sensors.id asc, temperature.created_at asc'
             );
         return $query->result_array();
@@ -44,6 +44,7 @@ class Pcb_model extends CI_Model {
 
     public function get_sensor_heater_with_pcb($pcb_id)
     {
+        // para servidor
         // $query = $this->db->query('select t1.id as pcb_id, t1.identifier as pcb_identifer, 
         //     t2.id as sensor_id, t2.identifier as sensor_identifier,
         //     t3.status as status, date_add(t3.created_at, interval 2 hour) as created_at,

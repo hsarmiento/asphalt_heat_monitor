@@ -115,7 +115,7 @@
                 x: -20 //center
             },
             subtitle: {
-                text: 'últimas 24 horas',
+                text: 'últimas 72 horas',
                 x: -20
             },
             exporting: {
@@ -179,7 +179,7 @@ $(function(){
           $("#start_time").html(data.created_at);
           $("#on_img").fadeIn("slow");
           $("#off_img").fadeOut("fast");
-          chrono();
+          chrono(data.created_at);
         }
         
         if(data.status == '0'){
@@ -197,14 +197,16 @@ $(function(){
   var diff = 0;
   var timerID = 0;
 
-  function chrono(){
-    start = <?php echo strtotime($aHeater['created_at'])*1000; ?>;
+  function chrono(created_at){
+    // start = <?php echo strtotime($aHeater['created_at'])?>*1000;
+    start = new Date(created_at);
+    start = start.getTime();
     end = new Date();
     end = end.getTime();
     diff = end - start;
     document.getElementById("tf_input").innerHTML = msToTime(diff);
     document.getElementById("timer").innerHTML = msToTime(diff);
-    timerID = setTimeout("chrono()", 2);
+    // timerID = setTimeout("chrono(created_at)", 2);
   }
   function chronoStop(){
     clearTimeout(timerID)

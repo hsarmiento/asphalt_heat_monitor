@@ -62,9 +62,9 @@ class Temperature_model extends CI_Model {
         }  
     }
 
-    public function check_temp_one_hour_before($sensor_id, $current_temp)
+    public function check_turn_on_one_hour($sensor_id, $current_temp)
     {
-        $query = $this->db->query('SELECT * from temperature where sensor_id = '.$sensor_id.' and TIMESTAMPDIFF(MINUTE, created_at, now()) >= 60 
+       $query = $this->db->query('SELECT * from temperature where sensor_id = '.$sensor_id.' and TIMESTAMPDIFF(MINUTE, created_at, now()) >= 60 
                 and TIMESTAMPDIFF(MINUTE, created_at, now()) < 80 order by created_at desc limit 1');
         if($query->num_rows()>0){
            $aOneHourBefore = $query->row_array(); 
@@ -73,6 +73,20 @@ class Temperature_model extends CI_Model {
 
             }
         }
-        return FALSE;
+        return FALSE; 
+    }
+
+    public function check_turn_off_one_hour($sensor_id, $current_temp)
+    {
+        $query = $this->db->query('SELECT * from temperature where sensor_id = '.$sensor_id.' and TIMESTAMPDIFF(MINUTE, created_at, now()) >= 60 
+                and TIMESTAMPDIFF(MINUTE, created_at, now()) < 80 order by created_at desc limit 1');
+        if($query->num_rows()>0){
+           $aOneHourBefore = $query->row_array(); 
+           if(20 <= ($aOneHourBefore['value'] - $current_temp)  && $aOneHourBefore['value'] > 90 && $current_temp > 90 ){
+                return TRUE;
+
+            }
+        }
+        return FALSE; 
     }
 }

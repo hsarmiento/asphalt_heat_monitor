@@ -51,8 +51,8 @@
 </div>
 
 <script>
-	$( "#upload_date" ).datepicker({ dateFormat: "dd-mm-yy" });
-	$( "#download_date" ).datepicker({ dateFormat: "dd-mm-yy" });
+	$( "#upload_date" ).datepicker({ dateFormat: "yy-mm-dd" });
+	$( "#download_date" ).datepicker({ dateFormat: "yy-mm-dd" });
 	$( "#upload_time" ).timepicker();
 	$( "#download_time" ).timepicker();
 	$( "#travel_time" ).timepicker();

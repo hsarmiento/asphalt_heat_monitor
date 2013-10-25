@@ -8,8 +8,8 @@ class Asphalt_model extends CI_Model
     }
 
     public function save()
-    {
-    	$data = array(
+    {    	
+    	$aData = array(
     		"driver_full_name" => $this->input->post('driver_full_name'),
 			"driving_hours" => $this->input->post('driving_hours'),
 			"trailer_identifier" => $this->input->post('trailer_identifier'),
@@ -24,9 +24,9 @@ class Asphalt_model extends CI_Model
 			"travel_time" => $this->input->post('travel_time'),
 			"heater_usage_hour" => $this->input->post('heater_usage_hour'),
 			"average_hourly_temp" => $this->input->post('average_hourly_temp')
-    	);
+    	);    	
 
-    	return $this->db->insert('asphalt', $data);
+    	return $this->db->insert('asphalt', $aData);
     }
 
 

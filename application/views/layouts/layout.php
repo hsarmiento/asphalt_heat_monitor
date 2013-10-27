@@ -11,8 +11,10 @@
 		<meta name="description" content="<?php echo $this->layout->getDescripcion(); ?>">
 		<!-- <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>public/css/general.css"> -->
 		<meta name="keywords" content="<?php echo $this->layout->getKeywords(); ?>" />
-	    <!-- <link href="<?php echo base_url()?>public/css/estilos.css" rel='stylesheet' type='text/css' media='all' /> -->
+	    <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>public/css/jquery-ui-1.10.3.custom.css">
 	    <script type="text/javascript" src="<?php echo base_url()?>public/js/jquery-1.10.2.js"></script>
+	    <script type="text/javascript" src="<?php echo base_url()?>public/js/jquery-ui-1.10.3.custom.js"></script>
+	    <script type="text/javascript" src="<?php echo base_url()?>public/js/jquery-ui-timepicker-addon.js"></script>
 	    <script type="text/javascript" src="<?php echo base_url()?>public/js/desarrollador2.js"></script>
 	    <!--*************auxiliares*****************-->
 

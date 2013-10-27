@@ -311,10 +311,13 @@ body {
 	
 
 #embed { width:555px;
+	width:555px;
 	height:383px;
-	kkjk
+	background-image: url(../img/creditos.png);
+	background-repeat: no-repeat;
+	background-position: center top;
+	border: thin dashed #999;
 	}
-
 	
 	
 	
@@ -348,7 +351,7 @@ body {
 	#mapa {
 	width: 555px;
 	height: 383px;
-	background-color: #4F4E4E;
+	/*background-color: #4F4E4E;*/
 	}
 	
 

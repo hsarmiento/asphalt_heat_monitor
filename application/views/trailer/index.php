@@ -1,10 +1,8 @@
 <div id="general">
   <div id="columnaa">
-     <div id="tituloproyecto" class="titulos">Ubicación Acoplado / <span class="patentetitulo">ZKDF09</span></div>
-     <div id="malla"></div>
+     <div id="tituloproyecto" class="titulos"> <span class="patentetitulo"></span></div>
      <div id="embed">
        <div id="mapa">
-       <iframe width="555" height="383" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.cl/maps?hl=es&amp;ie=UTF8&amp;ll=-33.462666,-70.677452&amp;spn=0.049765,0.090895&amp;t=k&amp;z=14&amp;output=embed"></iframe><br /><small><a href="https://maps.google.cl/maps?hl=es&amp;ie=UTF8&amp;ll=-33.462666,-70.677452&amp;spn=0.049765,0.090895&amp;t=k&amp;z=14&amp;source=embed" style="color:#0000FF;text-align:left"></a></small>  
        </div>
      </div>
   </div>

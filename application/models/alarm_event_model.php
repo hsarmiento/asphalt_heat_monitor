@@ -37,7 +37,8 @@ class Alarm_event_model extends CI_Model {
         ->join('sensors as t4', 't1.id = t4.pcb_id')
         ->join('heaters as t5', 't4.id = t5.sensor_id')
         ->where('t4.id', '2')
-        ->order_by('t5.created_at','desc');
+        ->order_by('t5.created_at','desc')
+        ->limit(100);
         $query = $this->db->get();
         return $query->result_array();
 

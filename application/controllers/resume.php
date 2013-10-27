@@ -81,4 +81,35 @@ class Resume extends CI_Controller
 		$this->layout->css(array(base_url().'public/css/partial_datagrid.css'));
 		$this->layout->view('partial_datagrid',compact('aResume'));
 	}
+
+	public function hidden_show($trailer_id)
+	{
+		if (!file_exists('application/views/resume/hidden_show.php'))
+		{
+			// Whoops, we don't have a page for that!
+			show_404();
+		}
+
+		// print_r($aResume);
+
+		$this->layout->css(array(base_url().'public/css/resume.css'));
+		$this->layout->setTitle('Sistema control asfalto | Resumen');
+		$this->layout->view('hidden_show',compact('trailer_id'));
+	}
+
+	public function hidden_partial_datagrid($trailer_id)
+	{
+		// $this->load->model('trailer_model');
+		// $aTrailer = $this->trailer_model->get_trailer_data($trailer_id);
+		// $aResume = $this->asphalt_model->get_asphalt_data($aTrailer['identifier']);
+
+		// $this->layout->css(array(base_url().'public/css/resume.css'));
+		// $this->layout->setTitle('Sistema control asfalto | Resumen');
+		// $this->layout->view('show',compact('aResume'));
+		$this->load->model('trailer_model');
+		$aTrailer = $this->trailer_model->get_trailer_data($trailer_id);
+		$aResume = $this->asphalt_model->get_asphalt_data($aTrailer['identifier']);
+		$this->layout->css(array(base_url().'public/css/partial_datagrid.css'));
+		$this->layout->view('hidden_partial_datagrid',compact('aResume'));
+	}
 }

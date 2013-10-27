@@ -38,7 +38,7 @@
          <div class="sensor"><a href="#">Sensor</a></div>
          <div class="placa"><a href="#">Placa</a></div>
        </div>
-        <div class="patentes"><a href="#">Eventos</a></div>
+        <div class="patentes"><a href="<?php echo base_url();?>resume/show/<?php echo $aTrailerData['id'];?>">Resumen</a></div>
      </div>
    </div>
     

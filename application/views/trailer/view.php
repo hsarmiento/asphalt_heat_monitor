@@ -53,7 +53,7 @@
        <div class="sensor"><a href="sensor_config.html">Sensor</a></div>
        <div class="placa"><a href="placa_config.html">Placa</a></div>
      </div>
-     <div class="patentes"><a href="home_general.html">Eventos</a></div>
+     <div class="patentes"><a href="<?php echo base_url();?>resume/show/<?php echo $trailer['id'];?>">Resumen</a></div>
      
      </div></div>
     

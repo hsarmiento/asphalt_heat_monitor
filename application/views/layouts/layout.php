@@ -39,7 +39,7 @@
 		<?php echo $content_for_layout; ?>
 		
 		<div id="footer">
-			<div id="footer_central"></div>
+		  <div id="footer_central"></div>
 		</div>
 	</body>
 </html>

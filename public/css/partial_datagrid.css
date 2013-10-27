@@ -1,0 +1,155 @@
+
+
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	background-color: #333;
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-image: url(../img/tapiz.png);
+}
+
+
+
+
+
+#contenedor {
+	height: 100%;
+	width: 1000px;
+	margin-right: auto;
+	margin-left: auto;
+	padding-top: 30px;
+	padding-right: 20px;
+	padding-bottom: 20px;
+	padding-left: 20px;
+	
+}
+
+
+#titulo_barra{
+	background-color: #333;
+	height: 29px;
+	width: 990px;
+	padding-top: 10px;
+	padding-right: 20px;
+	padding-left: 20px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #FFF;
+}
+
+
+
+#datos_conductor{
+	height: 230px;
+	width: 300px;
+	float: left;
+	margin-top: 30px;
+	
+}
+
+
+
+#datos_calefactor{
+	height: 150px;
+	width: 300px;
+	float: left;
+	margin-left: 30px;
+	margin-top: 30px;
+
+}
+
+#titulo_barra_2{
+	background-color: #333;
+	height: 29px;
+	width: 1000px;
+	padding-top: 10px;
+	padding-right: 20px;
+	padding-left: 20px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #FFF;
+	margin-top: 30px;
+	float: left;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+
+
+#central_datos{
+	height: 100%;
+	width: 990px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #FFF;
+	margin-top: 30px;
+	float: left;
+	margin-right: auto;
+	margin-left: auto;
+	padding-left: 20px;
+}
+
+
+
+.datos_1{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	color: #FFF;
+	padding-left: 10px;
+}
+
+
+.datos_22{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #FFF;
+	
+}
+
+
+
+.datos{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	color: #FFF;
+	padding-left: 10px;
+}
+
+
+
+
+.critico{
+	font-family: Arial, Helvetica,  Courier, monospace;
+	font-size: 16px;
+	color: #F90;
+	padding-left: 10px;
+}
+
+
+.atento{
+	font-family: Arial, Helvetica, , Courier, monospace;
+	font-size: 16px;
+	color: #F00;
+	padding-left: 10px;
+}
+
+
+.estable{
+	font-family: Arial, Helvetica,  Courier, monospace;
+	font-size: 16px;v
+	color: #9F0;
+	padding-left: 10px;
+}
+
+
+
+.titulo_3{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #FFF;
+	
+}

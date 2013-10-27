@@ -61,9 +61,25 @@ class Resume extends CI_Controller
 		$aResume = $this->asphalt_model->get_asphalt_data($aTrailer['identifier']);
 		// print_r($aResume);
 
-		$this->layout->css(array(base_url().'public/css/general.css'));
+		$this->layout->css(array(base_url().'public/css/resume.css'));
 		$this->layout->setTitle('Sistema control asfalto | Resumen');
-		$this->layout->view('show',compact('aResume'));
+		$this->layout->view('show',compact('trailer_id'));
+	}
+
+	public function partial_datagrid($trailer_id)
+	{
+		// $this->load->model('trailer_model');
+		// $aTrailer = $this->trailer_model->get_trailer_data($trailer_id);
+		// $aResume = $this->asphalt_model->get_asphalt_data($aTrailer['identifier']);
+
+		// $this->layout->css(array(base_url().'public/css/resume.css'));
+		// $this->layout->setTitle('Sistema control asfalto | Resumen');
+		// $this->layout->view('show',compact('aResume'));
+		$this->load->model('trailer_model');
+		$aTrailer = $this->trailer_model->get_trailer_data($trailer_id);
+		$aResume = $this->asphalt_model->get_asphalt_data($aTrailer['identifier']);
+		$this->layout->css(array(base_url().'public/css/partial_datagrid.css'));
+		$this->layout->view('partial_datagrid',compact('aResume'));
 	}
 
 	public function edit($iAsphaltId)

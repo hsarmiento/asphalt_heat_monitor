@@ -13,11 +13,47 @@ body {
 }
 
 
+.titulo_calefactor {
+	font-family:Arial, Helvetica, sans-serif;
+	color: #FFF;
+	font-size:16px;
+	font-weight: bold;
+	}
+
+
 .titulos {
 	font-family:Arial, Helvetica, sans-serif;
 	color: #FFF;
 	font-size:14px;
 	}
+	
+	
+	
+#titulo_acoplado {
+	height:auto;
+	width:80px;
+	padding-top:60px;
+	padding-bottom:10px;
+	padding-left: 30px;	
+	}
+	
+	
+	
+	#titulo_alarmas {
+	height:auto;
+	width:100%;
+	padding-top:60px;
+	padding-bottom:10px;
+
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	
 .patentes {
 	font-family:Arial, Helvetica, sans-serif;
@@ -557,15 +593,117 @@ body {
 	
 	
 	#dato_general {
-	height: 80px;
-	width: 324px;
+	height: 100px;
+	width: 335px;
 	float: left;
 	margin-top: 30px;
-	padding-top: 10px;
-	padding-left: 10px;
+
+	padding-left: 8px;
 	border-right-width: thin;
 	border-right-style: dotted;
 	border-right-color: #999;	
+	}
+	
+	
+	
+	
+	#dato_general_titulo {
+	height: 90px;
+	width: 130px;
+	float: left;
+    padding-top: 10px;
+
+	
+	}
+	
+	
+	
+	
+	
+	.dato_general {
+	height: 13px;
+	width: 100%;
+	
+
+	
+	}
+	
+	
+	.dato_acoplado {
+	height: 13px;
+	width: 100%;
+	
+
+	
+	}
+
+
+.dato_conductor {
+	height: 13px;
+	width: 100%;
+
+
+	
+	}
+	
+
+	
+	.dato_ubicacion {
+	height: 13px;
+	width: 100%;
+	
+
+	
+	}
+	
+	.dato_tcpu {
+	height: 13px;
+	width: 100%;
+	
+
+	
+	}
+	
+		.dato_testanque {
+	height: 13px;
+	width: 100%;
+	
+
+	
+	}
+	
+	.dato_tinicio {
+	height: 13px;
+	width: 100%;
+	
+
+	
+	}
+	
+	.dato_tfunc {
+	height: 13px;
+	width: 100%;
+	
+
+	
+	}
+		
+	
+	
+	
+	
+	
+	
+	
+	
+		
+		#dato_general_info {
+	height: 90px;
+	width: 200px;
+	float: left;
+    padding-top: 10px;
+	
+		
 	}
 	
 	
@@ -593,7 +731,7 @@ body {
 	width:150px;
 	float:left;
 	margin-top: 30px;
-	margin-left: 15px;
+	margin-left: 10px;
 	
 	}
 	
@@ -698,7 +836,7 @@ body {
 	padding-top: 13px;
 	}
 #columnab { width:521px;
-	height:569px;
+	height:579px;
 	float:left;
 	
 }
@@ -731,11 +869,19 @@ body {
 	margin-top: 50px;
 	
 	}
+	
+	
+	
+		li {
+	list-style:none;
+	
+	}
 
- #off_img{
- 	display:none;
- }
+	#off_img{
+		display:none;
+	}
 
- #on_img{
- 	display:none;
- }
+	#on_img{
+		display:none;
+	}
+	

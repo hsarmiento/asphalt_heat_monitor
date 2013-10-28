@@ -5,7 +5,7 @@
   </div>
      
   <div id="columnaselectora">
-     <div id="tituloproyecto"class="titulos">Acoplado</div> 
+     <div id="titulo_acoplado"class="titulos">Acoplado</div> 
      <div id="selectores">  
         <div id="patentes1">    
           <div class="patentes"><a href="<?php echo base_url();?>trailer/view/<?=$aTrailerData['id']?>"><?php echo $aTrailerData['identifier']; ?></a></div>
@@ -75,14 +75,24 @@
           00:00:00 Hrs.
          </div>
        </div>
-       <div class="resumen" id="dato_general">
-         N° Acoplado     : <?=$aTrailerData["identifier"]?><br>
-         Conductor       : Rodolfo Machuca<br>
-         Ubicación       : Lat. <span id="latitud"><?php echo $aPos[0]['latitude'];?></span> / Log. <span id="longitud"><?php echo $aPos[0]['longitude'];?></span> <br>
-          Dispositivo Electrónico GPS: <span id="temp1"><?php echo $aTemp[1]['heat']?></span> <br>
-         Temperatura Interna Estanque: <span id="temp2"><?php echo $aTemp[0]['heat']?></span> <br>
-         Hora de Inicio  : 
-         <span id="start_time">
+       <div id="dato_general">
+          <div class="resumen" id="dato_general_titulo">
+              <div class="dato_testanque">Nº Acoplado</div>
+              <div class="dato_testanque">Conductor</div>
+              <div class="dato_testanque">Ubicación</div>
+              <div class="dato_testanque">Temp. CPU</div>
+              <div class="dato_testanque">Temp.Int. Estanque</div>
+              <div class="dato_testanque">Hora de Inicio</div>
+              <div class="dato_testanque">Tiempo de Func. </div>         
+          </div>
+         <div class="resumen" id="dato_general_info">
+            <div class="dato_acoplado">: <?=$aTrailerData["identifier"]?></div>
+            <div class="dato_conductor">: Rodolfo Machuca</div>
+            <div class="dato_ubicacion">: Lat.<span id="latitud"><?php echo $aPos[0]['latitude'];?></span>/Long.<span id="longitud"><?php echo $aPos[0]['longitude'];?></span></div>
+            <div class="dato_tcpu">: <span id="temp1"><?php echo $aTemp[1]['heat']?></span> °C</div>
+            <div class="dato_testanque">: <span id="temp2"><?php echo $aTemp[0]['heat']?></span> °C</div>
+            <div class="dato_tinicio">:
+                  <span id="start_time">
                 <?php 
                   if($aHeater['status'] == 0 || empty($aHeater['status'])){
                     echo '00:00:00';
@@ -90,8 +100,13 @@
                     echo $aHeater['created_at'];
                   } 
                  ?>
-            </span><br>
-         Tiempo de Func. : <span id="timer">00:00:00 Hrs.</span></div>
+                  </span>
+                  Hrs.
+            </div>
+            <div class="dato_tfunc">: <span id="timer">00:00:00 Hrs.</span></div>
+         </div>
+      </div>
+       
        <div id="box_bts">
          <div id="box_aplicacion">
          <div class="botongrafico" id="botongrafico"><a href="#"><img src="<?php echo base_url()?>public/img/grafico.png" width="61" height="30" border="0"></a></div>

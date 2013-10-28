@@ -256,9 +256,10 @@ body {
 	
 #tituloproyecto {
 	height:auto;
-	width:100%;
+	width:80px;
 	padding-top:60px;
 	padding-bottom:10px;
+	padding-left: 30px;	
 	}
 	
 #camion {

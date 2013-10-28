@@ -14,7 +14,7 @@
   </tr>
   <tr>
     <td height="46" bgcolor="#323232" class="datos_1"><span class="datos_22">Horas de conducción continua actual</span><br></td>
-    <td bgcolor="#000000" class="datos_1"><?=$aResume[0]['driving_hours']?></td>
+    <td bgcolor="#000000" class="datos_1"><?=$aResume[count($aResume)-1]['driving_hours']?></td>
   </tr>
   <tr>
     <td height="42" bgcolor="#323232" class="datos_1"><span class="datos_22">Identiﬁcación Acoplado</span><br></td>

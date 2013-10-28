@@ -75,8 +75,8 @@
       por hora de uso Calefactor Cº</p></td>
       <td width="14%" bgcolor="#333333"><p align="center"></td>
   </tr>
-  <tr>
-    <?php foreach ($aResume as $value) { ?>
+  <?php foreach ($aResume as $value) { ?>
+      <tr>
         <td height="40" bgcolor="#000000" class="datos"><div align="center"><?=$value['upload_date']?></div></td>
         <td bgcolor="#000000" class="datos"><div align="center"><?=$value['upload_time']?></div></td>
         <td bgcolor="#000000" class="datos"><div align="center"><?=$value['upload_temp']?></div></td>
@@ -86,9 +86,9 @@
         <td bgcolor="#000000" class="datos"><div align="center"><?=$value['travel_time']?></div></td>
         <td bgcolor="#000000" class="datos"><div align="center"><?=$value['heater_usage_hour']?></div></td>
          <td bgcolor="#000000" class="datos"><div align="center"><?=$value['average_hourly_temp']?></div></td>
-         <td bgcolor="#000000" class="datos"><div align="center"><a href="<?php echo base_url();?>resume/edit/<?php echo $value['id'];?>">Editar</a></div></td>
-    <?php } ?>
-  </tr>
+         <td bgcolor="#000000" class="datos"><div align="center"><a href="<?php echo base_url();?>resume/edit/<?php echo $value['id'];?>">Editar</a></div></td>  
+      </tr>
+  <?php } ?>
    
   </table>
    </div>

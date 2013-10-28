@@ -74,19 +74,19 @@
     <td width="21%" bgcolor="#323232"><p align="center">Grados Cº promedio elevados <br>
       por hora de uso Calefactor Cº</p></td>
   </tr>
-  <tr>
-    <?php foreach ($aResume as $value) { ?>
-        <td height="40" bgcolor="#000000" class="datos"><div align="center"><?=$value['upload_date']?></div></td>
-        <td bgcolor="#000000" class="datos"><div align="center"><?=$value['upload_time']?></div></td>
-        <td bgcolor="#000000" class="datos"><div align="center"><?=$value['upload_temp']?></div></td>
-        <td bgcolor="#000000" class="datos"><div align="center"><?=$value['download_temp']?></div></td>
-       <td bgcolor="#000000" class="datos"><div align="center"><?=$value['download_date']?></div></td>
-         <td bgcolor="#000000" class="datos"><div align="center"><?=$value['download_time']?></div></td>
-        <td bgcolor="#000000" class="datos"><div align="center"><?=$value['travel_time']?></div></td>
-        <td bgcolor="#000000" class="datos"><div align="center"><?=$value['heater_usage_hour']?></div></td>
-         <td bgcolor="#000000" class="datos"><div align="center"><?=$value['average_hourly_temp']?></div></td>
-    <?php } ?>
-  </tr>
+   <?php foreach ($aResume as $value) { ?>
+      <tr> 
+          <td height="40" bgcolor="#000000" class="datos"><div align="center"><?=$value['upload_date']?></div></td>
+          <td bgcolor="#000000" class="datos"><div align="center"><?=$value['upload_time']?></div></td>
+          <td bgcolor="#000000" class="datos"><div align="center"><?=$value['upload_temp']?></div></td>
+          <td bgcolor="#000000" class="datos"><div align="center"><?=$value['download_temp']?></div></td>
+          <td bgcolor="#000000" class="datos"><div align="center"><?=$value['download_date']?></div></td>
+          <td bgcolor="#000000" class="datos"><div align="center"><?=$value['download_time']?></div></td>
+          <td bgcolor="#000000" class="datos"><div align="center"><?=$value['travel_time']?></div></td>
+          <td bgcolor="#000000" class="datos"><div align="center"><?=$value['heater_usage_hour']?></div></td>
+          <td bgcolor="#000000" class="datos"><div align="center"><?=$value['average_hourly_temp']?></div></td> 
+      </tr>
+  <?php } ?>
    
   </table>
    </div>

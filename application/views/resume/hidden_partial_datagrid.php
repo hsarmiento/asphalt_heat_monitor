@@ -33,10 +33,10 @@
     </tr>
   <tr>
     <td width="60%" bgcolor="#323232" class="datos_1">Modelo</td>
-    <td width="40%" bgcolor="#000000" class="datos_1">Beckett SF</td>
+    <td width="40%" bgcolor="#000000" class="datos_1"><?=$aResume[0]['heater_type']?></td>
   </tr>
   <tr>
-    <td bgcolor="#323232" class="datos_1"><?=$aResume[0]['heater_type']?></td>
+    <td bgcolor="#323232" class="datos_1">Boquillas</td>
     <td bgcolor="#000000" class="datos_1"><?=$aResume[0]['number_injector']?></td>
   </tr>
   </table>

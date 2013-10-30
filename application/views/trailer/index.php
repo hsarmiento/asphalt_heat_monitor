@@ -38,8 +38,8 @@
          <div class="patentes_bts_2" id="patentes_bts_2"><a href="#">Next</a></div>
         </div>
         <div class="patentes">
-         <div class="sensor"><a href="sensor_config.html">Sensor</a></div>
-         <div class="placa"><a href="placa_config.html">Placa</a></div>
+         <div class="sensor"><a href="#">Sensor</a></div>
+         <div class="placa"><a href="#">Placa</a></div>
         </div>
        <!-- /<div class="patentes"><a href="#">Boton x</a></div> -->
      </div>
